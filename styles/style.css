@@ -1,0 +1,520 @@
+/* for smooth scrolling when jumping to section in page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* general styles */
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    font-family: 'Geist', 'Helvetica', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #ffffff;
+    color: #404040;
+    font-size: 16px; /* base em */
+    font-weight: 300;
+    line-height: 1.4; /* Changed to a numeric value for better consistency */
+}
+
+/* Heading styles for main content */
+.one-column-layout .main-content-column h1,
+.two-column-layout .main-content-column h1 {
+    font-size: 3.5em; /* Adjusted from 3.2em (3.2 * 20px = 64px, now 4 * 16px = 64px) */
+    font-weight: 700;
+    color: #6E6EFF;
+    margin-bottom: 16px; /* Added margin-bottom */
+
+}
+
+.one-column-layout .main-content-column h2,
+.two-column-layout .main-content-column h2 {
+    font-size: 2.5em; /* Adjusted from 2.4em (2.4 * 20px = 48px, now 3 * 16px = 48px) */
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 2px; /* Added margin-bottom */
+
+}
+
+.one-column-layout .main-content-column h3,
+.two-column-layout .main-content-column h3 {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #757575;
+    margin-bottom: 8px; /* Added margin-bottom */
+
+}
+
+/* navigation bar */
+header {
+    color: #757575;
+    font-size: 1.25em; /* Adjusted from 1em (1 * 20px = 20px, now 1.25 * 16px = 20px) */
+    font-weight: 600; /* semibold */
+    line-height: 1.5; /* Changed to a numeric value */
+    display: flex; /* Enable flexbox for the navigation bar */
+    justify-content: space-between; /* Space items out */
+    align-items: center; /* Vertically center items */
+    padding: 16px 20px; /* Add padding around the nav content */
+    flex-wrap: wrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add drop shadow */
+    position: relative; /* Needed for absolute positioning of the rectangle */
+    top: 0; /* Ensure the navbar stays at the top */
+    left: 0;
+    width: 100%; /* Ensure the navbar takes the full width */
+    z-index: 10; /* Ensure header is above other elements */
+
+}
+
+header::after { /* Add pseudo-element for the purple rectangle */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Height of the rectangle */
+    background-color: #EDF0FF; /* Purple color */
+}
+
+header .logo {
+    /* width: auto;  Remove this line */
+    margin-right: auto; /* Push logo to the left */
+    margin-left: 20px; /* Add left margin to logo */
+}
+header .nav-links{
+    margin-left: auto;
+    margin-right: 20px; /* Add right margin to nav-links */
+}
+
+.logo img {
+    height: 72px;
+    width: auto; /* Maintain aspect ratio */
+}
+
+.dropdown-main-menu {
+    list-style-type: none; /* Remove default bullets */
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Example background color */
+    display: flex; /* Optional: for horizontal menu */
+    align-items: center; /* Vertically center items, if needed */
+    
+}
+
+.dropdown-main-menu > li {
+    position: relative; /* Crucial for positioning the submenu */
+}
+
+.dropdown-main-menu > li > a {
+    display: block;
+    color: #757575;
+    text-align: center;
+    padding: 16px 48px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.dropdown-main-menu > li > a:hover,
+.dropdown-main-menu > li > a:focus { /* Added :focus for accessibility */
+    color: #000000;
+}
+
+/* Show the submenu when hovering over the parent li */
+.dropdown-main-menu > li:hover > .submenu,
+.dropdown-main-menu > li:focus-within > .submenu{ /* added focus-within */
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.dropdown-main-menu > li.active > a {
+    color: #6E6EFF; /* Highlight color for active page -  purple */
+}
+
+/* Specific rule to override active state on hover */
+.dropdown-main-menu > li.active > a:hover,
+.dropdown-main-menu > li.active > a:focus {
+    color: #000000; /* Change to black on hover, even when active */
+}
+
+.submenu {
+    font-size: 0.9em;
+    font-weight: 400; /* Regular weight */
+    list-style-type: none;
+    padding: 8px 24px;
+    margin: 0;
+    visibility: hidden; /* Hide submenu by default */
+    position: absolute; /* Position it relative to the parent li */
+    top: 100%; /* Position it right below the parent link */
+    left: 15%;
+    background-color: #ffffff; /* Example background for submenu */
+    min-width: 200px; /* Example minimum width */
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+    z-index: 1; /* Ensure it's above other content */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; /* Added visibility */
+    border-radius: 10px; /* Added rounded corners */
+    overflow: hidden; /* Ensures content respects border-radius */
+}
+
+.submenu li a {
+    color: #757575;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    white-space: nowrap; /* Prevent text wrapping in submenu */
+    transition: color 0.3s ease;
+}
+
+.submenu li a:hover,
+.submenu li a:focus { /* Added :focus */
+    color: #000000;
+}
+
+/* CSS rules to apply when the condition is true */
+@media (max-width: 768px){
+    header{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    header .nav-links{
+        margin-left: 0;
+    }
+    .dropdown-main-menu{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Layout Styles */
+.main-content {
+    padding: 20px 0; /* Removed top padding, added bottom padding */
+    max-width: 1200px;
+    margin: 40px auto 0; /* Added top margin to move content down, removed bottom margin*/
+    display: flex;
+    gap: 20px;
+}
+
+/* Added margin-bottom to sections for spacing */
+.main-content-column section {
+    margin-bottom: 40px; /* Adjust as needed for desired spacing */
+}
+
+/* One column layout */
+.one-column-layout .main-content-column{
+    flex: 1;
+}
+
+/* Two column layout */
+.two-column-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Changed from space-between to flex-start */
+}
+
+.two-column-layout .main-content-column {
+    flex: 3; /* Takes up 4/5 of the available space */
+    margin-left: 20px; /* Added margin-left to main content */
+}
+
+.two-column-layout .toc {
+    flex: 1; /* Takes up 1/5 of the available space */
+    padding-right: 20px; /* Changed from padding-left to padding-right */
+    padding-left: 20px; /* Removed left padding */
+    border-right: 1px solid #e0e0e0; /* Changed border-left to border-right */
+    text-align: left;
+    position: sticky; /* Make the TOC sticky */
+    top: 20px;         /* Stick it to the top */
+    align-self: flex-start;
+    height: fit-content;
+    background-color: #ffffff;
+}
+
+/* ToC title */
+.toc h1 {
+    font-size: 1.25em; /* Adjusted from 1em (1 * 20px = 20px, now 1.25 * 16px = 20px) */
+    font-weight: 600;
+}
+
+.toc ul {
+    list-style-type: none;
+    padding: 8px 0;
+}
+
+.toc li a {
+    font-size: 1em; /* Adjusted from 0.8em (0.8 * 20px = 16px, now 1 * 16px = 16px) */
+    font-weight: 400;
+    color: #757575;
+    text-decoration: none;
+    display: block;
+    padding: 10px 16px;
+    text-align: left; /* Added left alignment for links */
+    transition: color 0.2s ease, background-color 0.3s ease;
+}
+
+.toc li a:hover {
+    color: #000000;
+    border-radius: 10px;
+    background: #EDF0FF;
+}
+
+
+.toc li a.active-toc-link { /* New style for active TOC link */
+    color: #6E6EFF; /* Highlight color for active TOC link */
+    border-radius: 10px;
+    background: #EDF0FF;
+}
+
+/* Specific style for the non-clickable "Arm Injuries" label */
+.toc ul li.main-section span {
+    font-weight: 600; /* Keep bold as it's a main section */
+    font-size: 1em; /* Adjusted from 0.8em (0.8 * 20px = 16px, now 1 * 16px = 16px) */
+    color: #404040; /* Match the color of .toc h1 */
+    display: block; /* Ensure it takes up full width for padding */
+    padding: 10px 16px; /* Match padding of other TOC items */
+    cursor: default; /* Change cursor to default to indicate non-clickable */
+    background-color: transparent; /* Ensure no background on hover */
+}
+
+/* Ensure no hover effects for the span */
+.toc ul li.main-section span:hover {
+    color: #404040; /* Keep original color on hover */
+    background-color: transparent; /* No background change on hover */
+}
+
+/* sub-page styles */
+.toc ul li.main-section a{
+    font-weight: 600;
+    background-color: transparent;
+}
+
+.toc ul li.sub-section a {
+    padding-left: 30px; /* Indentation for sub-sections in sub-page */
+}
+
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    /* Left position is calculated by JavaScript */
+    left: auto;      /* Ensure left is not set by CSS to prevent horizontal stretching */
+    width: fit-content; /* Use fit-content to size to content */
+    height: auto;    /* Allow height to be determined by content and padding */
+    padding: 8px 16px; /* Keep padding for button size */
+    font-size: 1em; /* Adjusted from 0.8em (0.8 * 20px = 16px, now 1 * 16px = 16px) */
+    font-weight: 300;
+    color: #404040;
+    cursor: pointer;
+    border-radius: 10px; /* Rounded corners */
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    z-index: 1000;
+    background-color: #ffffff; /* Light background color */
+    border: 0px solid #757575; /* Border */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: inline-flex; /* Ensure it behaves like a button */
+    align-items: center;
+    justify-content: center;
+}
+
+#back-to-top:hover {
+    color: #6E6EFF;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #EDF0FF; /* Light background color */
+
+}
+
+#back-to-top:active {
+    color: #6E6EFF;
+}
+
+/* Media query for responsive adjustments for ToC */
+    @media (max-width: 768px) {
+        .two-column-layout .toc {
+            /* Ensure TOC is not sticky on small screens */
+            position: relative;
+            top: 0;
+            padding-right: 0; /* Reset padding to avoid extra space on small screens */
+            border-right: none;  /* Remove the border on small screens */
+            padding-left: 20px;
+        }
+
+        .main-content {
+        flex-direction: column;
+        }
+        .two-column-layout .main-content-column{
+        margin-left: 0;
+        }
+    }
+
+
+
+/* Breadcrumb Styles */
+.breadcrumb {
+    font-family: 'Geist', 'Helvetica', sans-serif; /* Apply Geist font */
+    font-size: 16px; /* This was already 16px, no change needed */
+    color: #757575;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.breadcrumb li {
+    margin-right: 8px;
+    display: inline-flex; /* Use inline-flex for better alignment */
+    align-items: center;
+}
+
+.breadcrumb li a {
+    color: #757575;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb li a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.breadcrumb li:not(:last-child)::after {
+    content: ">";
+    margin-left: 8px;
+    color: #757575;
+}
+
+.breadcrumb li.active {
+    color: #757575;
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #EDF0FF;
+    display: flex;
+    justify-content: space-between; /* Pushes left and right sections to edges */
+    align-items: center; /* Vertically aligns items in the center */
+    padding: 40px 60px; /* Adjust padding as needed */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin-top: 60px; /* Add some space above the footer to separate from main content */
+    border-top: 0px solid #c5c5c5; /* Optional: Add a subtle top border */
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Space between logo and text block */
+    flex-wrap: wrap; /* Allow logo and text to wrap if screen is too small */
+}
+
+.footer-logo {
+    height: 144px; /* Matches the header logo height */
+    width: auto; /* Maintains aspect ratio */
+}
+
+.footer-text h3 {
+    font-size: 1.5em; /* Adjusted from 1.6em (1.6 * 20px = 32px, now 2 * 16px = 32px) */
+    font-weight: 600; /* Semibold for heading */
+    color: #757575;
+    margin-bottom: 8px; /* Space below the heading */
+}
+
+/* Style for the About NerveUs link within the footer-text h3 */
+.footer-text h3 a {
+    color: #757575; /* Match the original h3 color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.2s ease;
+}
+
+.footer-text h3 a:hover {
+    color: #6E6EFF; /* Change color on hover to purple */
+}
+
+
+.footer-text p {
+    font-size: 1em; /* Adjusted from 0.8em (0.8 * 20px = 16px, now 1 * 16px = 16px) */
+    font-weight: 300; /* Light weight */
+    color: #757575;
+    margin-bottom: 4px; /* Space between paragraphs */
+}
+
+.footer-text p:last-child {
+    margin-bottom: 0; /* No margin after the last paragraph */
+}
+
+.footer-text a {
+    color: #6E6EFF; /* Purple for links, matching your site's active color */
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.footer-text a:hover {
+    color: #000000; /* Darker on hover */
+}
+
+.footer-right ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    align-items: flex-end; /* Align links to the right within their container */
+}
+
+.footer-right li {
+    margin-bottom: 8px; /* Space between stacked links */
+}
+
+.footer-right li:last-child {
+    margin-bottom: 0; /* No margin after the last link */
+}
+
+.footer-right a {
+    font-size: 1.25em; /* Adjusted from 1em (1 * 20px = 20px, now 1.25 * 16px = 20px) */
+    font-weight: 600;
+    color: #757575;
+    text-decoration: none;
+    padding: 5px 0; /* Add some vertical padding for clickable area */
+    transition: color 0.2s ease;
+}
+
+.footer-right a:hover {
+    color: #000000; /* Darker on hover */
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: flex-start; /* Align all content to the left */
+        padding: 30px 20px;
+    }
+
+    .footer-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 30px; /* Space between left and right sections when stacked */
+        text-align: left; /* Ensure text is left-aligned within its column */
+    }
+
+    .footer-text {
+        width: 100%; /* Ensure text block takes full width under logo */
+    }
+
+    .footer-right {
+        width: 100%; /* Take full width */
+    }
+
+    .footer-right ul {
+        align-items: flex-start; /* Align links to the left when stacked */
+    }
+
+    .footer-right li a {
+        text-align: left; /* Align link text to the left */
+    }
+}
