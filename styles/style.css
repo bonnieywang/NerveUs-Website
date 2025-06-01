@@ -192,7 +192,7 @@ header .nav-links{
 
 /* Layout Styles */
 .main-content {
-    padding: 20px 0; /* Removed top padding, added bottom padding */
+    padding: 10px 20px 0 0; /* Removed top padding, added bottom padding */
     max-width: 1200px;
     margin: 40px auto 0; /* Added top margin to move content down, removed bottom margin*/
     display: flex;
@@ -345,6 +345,8 @@ header .nav-links{
 
         .main-content {
         flex-direction: column;
+        padding: 24px;
+
         }
         .two-column-layout .main-content-column{
         margin-left: 0;
@@ -391,6 +393,72 @@ header .nav-links{
     color: #757575;
     text-decoration: underline;
 }
+
+/* New styles for the "Go to next chapter" section */
+.next-chapter-section {
+    max-width: 1200px;
+    margin: 60px auto 40px; /* Top margin, auto horizontal, bottom margin */
+    padding: 0 20px; /* Horizontal padding */
+}
+
+.next-chapter-section hr {
+    border: none;
+    border-top: 1px solid #e0e0e0; /* Light gray line */
+    margin-bottom: 40px; /* Space below the line */
+}
+
+.next-chapter-section h3 {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #404040;
+    margin-bottom: 8px; /* Added margin-bottom */
+}
+
+.next-chapter-button {
+    display: flex;
+    align-items: center;
+    background-color: #EDF0FF; /* Light purple background */
+    border: 1px solid #6E6EFF; /* Purple border */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px 30px; /* Padding inside the button */
+    text-align: left;
+    color: #404040;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease,;
+    max-width: 400px; /* Limit button width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.next-chapter-button:hover {
+    background-color: #e0e6ff; /* Slightly darker purple on hover */
+    border-color: #5a5aff; /* Darker purple border on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+    color: #6E6EFF;
+}
+
+.next-chapter-button-content {
+    flex-grow: 1; /* Allows content to take available space */
+}
+
+.next-chapter-button h3 {
+    font-size: 1.5em; /* Title font size */
+    font-weight: 700;
+    color: #6E6EFF; /* Purple title */
+    margin-bottom: 5px; /* Space between title and description */
+}
+
+.next-chapter-button p {
+    font-size: 0.9em; /* Description font size */
+    font-weight: 300;
+    color: #757575;
+    line-height: 1.3;
+}
+
+.next-chapter-button .arrow-icon {
+    font-size: 2em; /* Size of the arrow icon */
+    color: #6E6EFF; /* Purple arrow */
+    margin-left: 20px; /* Space between text and arrow */
+}
+
 
 /* Footer Styles */
 footer {
