@@ -1,0 +1,208 @@
+
+/* Wraps the animation wrapper, slider, and buttons */
+#interactiveSliderBox {
+    border: 1px solid #e0e0e0; /* Thin gray border */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Wraps the animation, overlay layers, and associated buttons */
+#animationWrapper {
+    position: relative;
+    width: 600px; /* Adjust to your animation's size */
+    height: 350px; /* Set to match your animation height */
+    margin: auto;
+    z-index: 2;
+    overflow: hidden; /* Ensures content respects rounded corners */
+  }
+
+/* Contains the animation only */
+#animationContainer {
+    width: 100%; /* Make it 80% of the container width */
+    max-width: 600px; /* Limit the max width to 600px */
+    height: auto;
+    max-height: 400px; /* Limit the height of the animation */
+    margin: 0 auto; /* Center the container */
+    box-sizing: border-box;
+    position: relative; /* <-- ADD THIS */
+    z-index: 3; /* <-- MAKE SURE IT'S ABOVE overlay */
+}
+  
+
+/* Container for the slider */
+.container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;  /* Center items */
+    gap: 15px; /* Adds spacing between slider and other elements */
+    width: 100%;  /* Make container take up full width */
+}
+
+
+/* Slider */
+.slider {
+    -webkit-appearance: none;
+    width: 100%; /* Make the slider take up full width */
+    height: 12px;
+    border-radius: 5px;
+    background: rgba(231, 231, 231);
+    outline: none;
+    transition: opacity .2s;
+}
+
+/* Slider thumb */
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #000000;
+    cursor: pointer;
+}
+
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #000000;
+    cursor: pointer;
+}
+
+
+/* Slider container */
+.slider-wrapper {
+    position: relative;
+    width: 80%; /* Make the slider 80% of the container width */
+    max-width: 600px; /* Limit the max width of the slider */
+    margin: 0 auto; /* Center the slider */
+}
+
+/* Tick marks */
+#tickmarks {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.tick {
+    width: 2px;
+    height: 15px;
+    background: black;
+}
+
+/* Media queries for responsiveness on smaller screens */
+@media (max-width: 768px) {
+    #animationContainer {
+        max-width: 90%; /* Increase width for smaller screens */
+        max-height: 300px; /* Reduce height on smaller screens */
+    }
+
+    .slider-wrapper {
+        width: 90%; /* Make the slider more flexible on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #animationContainer {
+        max-width: 95%; /* Make it almost full width on small mobile screens */
+        max-height: 250px; /* Further reduce height */
+    }
+
+    .slider-wrapper {
+        width: 95%; /* Make slider wider on mobile */
+    }
+}
+
+  
+  #skinOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* Start hidden */
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.1; /* 👈 lower value = more transparent */
+  }
+  
+  #boneBehind {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2; /* Under animation but above skin */
+    opacity: 1;
+  }
+
+  #boneFront {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 4; /* Top overlay */
+    opacity: 0.5;
+  }
+  
+  #toggleSkinOverlayBtn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 5;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-family: Public Sans;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+  }
+
+  #toggleBoneOverlayBtn {
+    position: absolute;
+    bottom: 50px;
+    right: 10px;
+    z-index: 5;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-family: Public Sans;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+  }
+
+  /* Hover state */
+#toggleSkinOverlayBtn:hover, #toggleBoneOverlayBtn:hover {
+    background-color: #3e6990; /* Change to a green background */
+    color: rgb(255, 255, 255); /* Change text color to white */
+    font-weight: bold; /* Make text bold in inactive state */
+}
+  
+  /* Active state for buttons */
+#toggleSkinOverlayBtn.active, #toggleBoneOverlayBtn.active {
+    background-color: #6da3d3;  /* Green for active state */
+    color: white;;
+    font-weight: normal; /* Ensure text is not bold in active state */
+}
+
+/* Inactive state (default) */
+#toggleSkinOverlayBtn, #toggleBoneOverlayBtn {
+    background-color: rgba(226, 226, 226, 0.9);
+    color: rgb(124, 124, 124);
+    font-weight: normal; /* Ensure text is not bold in active state */
+}
+
+/* Active button with hover */
+#toggleSkinOverlayBtn.active:hover, #toggleBoneOverlayBtn.active:hover {
+    background-color: #3e6990; /* Darker green when hovering over an active button */
+    color: white; /* Ensure text remains white when active and hovered */
+    font-weight: bold; /* Make text bold in inactive state */
+}
+

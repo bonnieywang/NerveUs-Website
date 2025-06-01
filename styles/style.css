@@ -225,7 +225,7 @@ header .nav-links{
     flex: 1; /* Takes up 1/5 of the available space */
     padding-right: 20px; /* Changed from padding-left to padding-right */
     padding-left: 20px; /* Removed left padding */
-    border-right: 1px solid #e0e0e0; /* Changed border-left to border-right */
+    border-right: 1px solid #e0e0e0;
     text-align: left;
     position: sticky; /* Make the TOC sticky */
     top: 20px;         /* Stick it to the top */
