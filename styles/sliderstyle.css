@@ -89,7 +89,7 @@
 .tick {
     width: 2px;
     height: 15px;
-    background: black;
+    background: #757575;
 }
 
 /* Media queries for responsiveness on smaller screens */
@@ -159,7 +159,7 @@
     border: none;
     padding: 8px 12px;
     cursor: pointer;
-    font-family: Public Sans;
+    font-family: Geist, Helvetica, sans-serif;
     border-radius: 4px;
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
   }
@@ -173,7 +173,7 @@
     border: none;
     padding: 8px 12px;
     cursor: pointer;
-    font-family: Public Sans;
+    font-family: Geist, Helvetica, sans-serif;
     border-radius: 4px;
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
   }
