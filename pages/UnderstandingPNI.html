@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../styles/breadcrumb.css">
     <link rel="stylesheet" href="../styles/sliderstyle.css">
     <link rel="stylesheet" href="../styles/nextChapter.css">
+    <link rel="stylesheet" href="../styles/lessonAccordion.css">
     <!--Google Font links-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -250,9 +251,20 @@
 
                     <div class="interactive-slider-description-box">
                         <p>The above is an interactive animation. Click and drag the slider to the left or right to navigate through the lesson.</p>
+
                         <a href="#" class="interactive-slider-download-button" download>
                             Download as video
                         </a>
+
+                        <button class="accordion">Lesson summary</button>
+                        <div class="panel">
+                            <div class="panel-content">
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  </p>
+                                <br>
+                                <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -320,6 +332,23 @@
         </div>
     </footer>
     
+    <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+    </script>
+
     <script src="../scripts/LottieInteractiveSlider/player2.js"></script>
     <script src="../scripts/LottieInteractiveSlider/lottiecontrol2.js"></script>
     <script src="../scripts/LottieInteractiveSlider/togglebutton.js"></script>
