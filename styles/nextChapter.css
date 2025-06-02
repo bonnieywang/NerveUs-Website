@@ -26,17 +26,16 @@
     border-radius: 15px; /* Rounded corners */
     padding: 20px 30px; /* Padding inside the button */
     text-align: left;
-    color: #404040;
+    color: #757575;
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Smooth transitions */
     width: 100%; /* Make button take full width of its parent column */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .next-chapter-button:hover {
 background-color: #e0e6ff; /* Slightly darker purple on hover */
 border-color: #5a5aff; /* Darker purple border on hover */
 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
-color: #6E6EFF;
+color: #404040;
 
 }
 
@@ -63,9 +62,4 @@ color: #6E6EFF;
     font-size: 2em; /* Size of the arrow icon */
     color: #6E6EFF; /* Purple arrow */
     margin-left: 20px; /* Space between text and arrow */
-}
-
-.next-chapter-button:hover,
-.next-chapter-button:hover h3 {
-color: #6E6EFF;
 }

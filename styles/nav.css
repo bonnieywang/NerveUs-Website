@@ -7,7 +7,7 @@ header {
     display: flex; /* Enable flexbox for the navigation bar */
     justify-content: space-between; /* Space items out */
     align-items: center; /* Vertically center items */
-    padding: 16px 20px; /* Add padding around the nav content */
+    padding: 8px 20px; /* Add padding around the nav content */
     flex-wrap: wrap;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add drop shadow */
     position: relative; /* Needed for absolute positioning of the rectangle */

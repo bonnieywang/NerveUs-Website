@@ -2,14 +2,14 @@
 /* Wraps the animation wrapper, slider, and buttons */
 #interactiveSliderBox {
     border: 1px solid #e0e0e0; /* Thin gray border */
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 10px; /* Rounded corners */
 }
 
 /* Wraps the animation, overlay layers, and associated buttons */
 #animationWrapper {
     position: relative;
-    width: 600px; /* Adjust to your animation's size */
-    height: 350px; /* Set to match your animation height */
+    width:auto; /* Adjust to your animation's size */
+    height: auto; /* Set to match your animation height */
     margin: auto;
     z-index: 2;
     overflow: hidden; /* Ensures content respects rounded corners */
@@ -18,9 +18,7 @@
 /* Contains the animation only */
 #animationContainer {
     width: 100%; /* Make it 80% of the container width */
-    max-width: 600px; /* Limit the max width to 600px */
     height: auto;
-    max-height: 400px; /* Limit the height of the animation */
     margin: 0 auto; /* Center the container */
     box-sizing: border-box;
     position: relative; /* <-- ADD THIS */
@@ -29,7 +27,7 @@
   
 
 /* Container for the slider */
-.container {
+.sliderContainer {
     display: flex;
     flex-direction: column; /* Stack elements vertically */
     align-items: center;  /* Center items */
@@ -72,8 +70,7 @@
 /* Slider container */
 .slider-wrapper {
     position: relative;
-    width: 80%; /* Make the slider 80% of the container width */
-    max-width: 600px; /* Limit the max width of the slider */
+    width: 90%; /* Make the slider 90% of the container width */
     margin: 0 auto; /* Center the slider */
 }
 
@@ -150,45 +147,40 @@
     opacity: 0.5;
   }
   
-  #toggleSkinOverlayBtn {
+  #toggleSkinOverlayBtn, #toggleBoneOverlayBtn {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    right: 24px;
     z-index: 5;
     background-color: rgba(255, 255, 255, 0.9);
     border: none;
     padding: 8px 12px;
     cursor: pointer;
     font-family: Geist, Helvetica, sans-serif;
-    border-radius: 4px;
+    font-weight: 400;
+    border-radius: 10px;
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
   }
 
-  #toggleBoneOverlayBtn {
-    position: absolute;
+#toggleBoneOverlayBtn {
     bottom: 50px;
-    right: 10px;
-    z-index: 5;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    font-family: Geist, Helvetica, sans-serif;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+  }
+
+#toggleSkinOverlayBtn {
+    bottom: 10px;
   }
 
   /* Hover state */
-#toggleSkinOverlayBtn:hover, #toggleBoneOverlayBtn:hover {
-    background-color: #3e6990; /* Change to a green background */
-    color: rgb(255, 255, 255); /* Change text color to white */
-    font-weight: bold; /* Make text bold in inactive state */
+#toggleSkinOverlayBtn:hover, #toggleBoneOverlayBtn:hover,
+#toggleSkinOverlayBtn.active:hover, #toggleBoneOverlayBtn.active:hover {
+    background-color: rgb(236, 246, 224) ; /* Change to a green background */
+    color: #404040; /* Change text color to white */
+    scale: 1.05; /* Slightly enlarge the button on hover */
 }
   
   /* Active state for buttons */
 #toggleSkinOverlayBtn.active, #toggleBoneOverlayBtn.active {
-    background-color: #6da3d3;  /* Green for active state */
-    color: white;;
+    background-color: #dff5c7;  /* Green for active state */
+    color: #404040;
     font-weight: normal; /* Ensure text is not bold in active state */
 }
 
@@ -199,10 +191,59 @@
     font-weight: normal; /* Ensure text is not bold in active state */
 }
 
-/* Active button with hover */
-#toggleSkinOverlayBtn.active:hover, #toggleBoneOverlayBtn.active:hover {
-    background-color: #3e6990; /* Darker green when hovering over an active button */
-    color: white; /* Ensure text remains white when active and hovered */
-    font-weight: bold; /* Make text bold in inactive state */
+/* Detail Text and Download Button Section */
+.interactive-slider-description-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes text to left, button to right */
+    margin-top: 40px; /* Space above this section */
+    padding: 20px;
+    border: none;
+    border-radius: 10px; /* Rounded corners */
+    background-color: #f9f9f9; /* Slightly off-white background */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px; /* Gap between text and button on wrap */
 }
 
+.interactive-slider-description-box p {
+    flex: 1; /* Allows paragraph to take available space */
+    font-size: 0.9em; /* Adjust as needed */
+    color: #404040;
+    margin: 0; /* Remove default paragraph margin */
+}
+
+.interactive-slider-download-button {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    border: 1px solid #6E6EFF; /* Purple border */
+    border-radius: 15px; /* Rounded corners */
+    background-color: #ffffff; /* White background */
+    color: #6E6EFF; /* Purple text */
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.interactive-slider-download-button:hover {
+    background-color: #EDF0FF; /* Purple background on hover */
+    color: #6E6EFF; /* White text on hover */
+    border-color: #5a5aff; /* Keep purple border on hover */
+}
+
+
+/* Responsive adjustments for interactive animation section */
+@media (max-width: 768px) {
+    .interactive-slider-description-box {
+        flex-direction: column; /* Stack text and button vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+    .interactive-slider-description-box p {
+        margin-bottom: 15px; /* Add space below text when stacked */
+    }
+    .interactive-slider-download-button {
+        width: 100%; /* Make button full width when stacked */
+        justify-content: center; /* Center button content */
+    }
+}
