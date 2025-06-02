@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../styles/sliderstyle.css">
     <link rel="stylesheet" href="../styles/nextChapter.css">
     <link rel="stylesheet" href="../styles/lessonAccordion.css">
+    <link rel="stylesheet" href="../styles/modal.css">
     <!--Google Font links-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,8 +22,192 @@
     <link rel="stylesheet" href="../styles/uikit css/uikit.min.css" />
     <script src="../scripts/uikit js/uikit.min.js"></script>
     <script src="../scripts/uikit js/uikit-icons.min.js"></script> -->
-    
-<script>
+    </head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="../images/navlogo.png" alt="logo"></a>
+        </div>
+        <div class="nav-links">
+            <ul class="dropdown-main-menu">
+                <li>
+                    <a href="UnderstandingPNI.html">Understanding PNI</a>
+                    <ul class="submenu">
+                        <!--update #section1 with section ID on page-->
+                        <li><a href="UnderstandingPNI.html#arm-injuries-section">Arm Injuries</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="AtTheClinic.html">At the Clinic</a>
+                    <ul class="submenu">
+                        <!--update #section1 with section ID on page-->
+                        <li><a href="AtTheClinic.html#your-care-team-section">Your Care Team</a></li>
+                        <li><a href="AtTheClinic.html#diagnostic-testing-section">Diagnostic Testing</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="RecoveryProcess.html">Recovery Process</a>
+                    <ul class="submenu">
+                        <!--update #section1 with section ID on page-->
+                        <li><a href="RecoveryProcess.html#treatment-options-section">Treatment Options</a></li>
+                        <li><a href="RecoveryProcess.html#rehabilitation-section">Rehabilitation</a></li>
+                    </ul>
+                </li>
+                <li><a href="AboutNerveUs.html">About NerveUs</a></li>
+            </ul>
+        </div>
+    </header>
+
+        <main class="main-content two-column-layout">
+        <div class="toc">
+            <h1>Understanding PNI</h1>
+            <ul>
+                <li><a href="#anatomy-of-nerve-section">Anatomy of a Nerve</a></li>
+                <li><a href="#peripheral-nervous-system-section">The Peripheral Nervous System</a></li>
+                <li><a href="#classifying-injury-section">Classifying an Injury</a></li>
+                <li class = "main-section"><span>Arm Injuries</span></li> <li class = "sub-section"><a href="#brachial-plexus-section">The Brachial Plexus</a></li>
+                <li class = "sub-section"><a href="#types-of-injuries-section">Types of Injuries</a></li>
+            </ul>
+        </div>
+
+
+        <div class="main-content-column">
+            <nav aria-label="Breadcrumb">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="UnderstandingPNI.html">Understanding PNI</a></li>
+                </ul>
+            </nav>
+
+            <h1>Understanding PNI</h1>
+
+            <section id="anatomy-of-nerve-section">
+                <h2>Anatomy of a Nerve</h2>
+                <h3>What is a nerve?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. 
+                </p>
+
+                <br>
+
+                <h3>What is the structure of a nerve?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
+                </p>
+
+                <br>
+
+                <div id="interactiveSliderBox">
+                    <div id="animationWrapper">
+
+                        <!--Bottom Layers-->
+                        <img id="skinOverlay" src="../images/BPanimation/skin layer.png" alt="Skin Overlay" style="display:none;">
+                        <img id="boneBehind" src="../images/BPanimation/bone behind.png" alt="Bone Behind" style="display:none;">
+
+                        <!-- Animation container -->
+                        <div id="animationContainer"></div>
+
+                        <!-- Top Layer -->
+                        <img id="boneFront" src="../images/BPanimation/bone in front.png" alt="Bone Front" style="display:none;">
+
+                        <!--Buttons-->
+                        <button id="toggleSkinOverlayBtn" onclick="toggleSkinOverlay()">Show Skin</button>
+                        <button id="toggleBoneOverlayBtn" onclick="toggleBoneOverlay()">Show Bone</button>
+
+                    </div>
+                    
+
+                    <div class="sliderContainer">
+                        <!-- Slider Wrapper to hold both slider and tick marks -->
+                        <div class="slider-wrapper">
+                            <input id="slider" type="range" max="1" min="0" value="0" step="any" class="slider" />
+                            <div id="tickmarks"></div> <!-- Tick marks inside the wrapper -->
+                        </div>
+                    </div>
+
+                    <div class="interactive-slider-description-box">
+                        <p>The above is an interactive animation. Click and drag the slider to the left or right to navigate through the lesson. <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" class="hyperlink">CC BY-NC-ND 4.0.</a> </p>
+
+                        <a href="../videos/sample video.mov" download="structure of nerve"class="interactive-slider-download-button" download>
+                            Download as video
+                        </a>
+
+                        <button class="accordion">Lesson summary</button>
+                        <div class="panel">
+                            <div class="panel-content">
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  </p>
+                                <br>
+                                <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="peripheral-nervous-system-section">
+                <h2>The Peripheral Nervous System</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+                </p>
+            </section>
+
+            <section id="classifying-injury-section">
+                <h2>Classifying an Injury</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+                </p>
+            </section>
+
+            <h1 id="arm-injuries-section">Arm Injuries</h1>
+
+            <section id="brachial-plexus-section">
+                <h2>The Brachial Plexus</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+                </p>
+            </section>
+
+            <section id="types-of-injuries-section">
+                <h2>Types of Injuries</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+                </p>
+            </section>
+
+            <div class="next-chapter-section">
+                <hr>
+                <br>
+                <div class="next-chapter-box">
+                    <h3 class="next-chapter-heading">Get ready for your visit at the clinic.</h3>
+                    <p class="next-chapter-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at erat magna.</p>
+                    <a href="AtTheClinic.html" class="next-chapter-inner-button">
+                        Next chapter
+                    </a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <button id="back-to-top">Back to Top</button>
+
+
+
+    </main>
+
+    <footer>
+        <div class="footer-left">
+            <a href="index.html"><img src="../images/boxlogo.png" alt="NerveUs Logo" class="footer-logo"></a>
+            <div class="footer-text">
+                <h3><a href="AboutNerveUs.html">About NerveUs</a></h3> <p>Have feedback or suggestions? Let us know by emailing <a href="mailto:bonn.wang@mail.utoronto.ca">bonn.wang@mail.utoronto.ca</a></p>
+                <p>&copy; 2025 Bonnie Wang. All rights reserved.</p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <ul>
+                <li><a href="UnderstandingPNI.html">Understanding PNI</a></li>
+                <li><a href="AtTheClinic.html">At the Clinic</a></li>
+                <li><a href="RecoveryProcess.html">Recovery Process</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
     document.addEventListener('DOMContentLoaded', () => {
         const navLinks = document.querySelectorAll('.dropdown-main-menu > li > a');
         const currentPath = window.location.pathname;
@@ -146,191 +331,6 @@
 
     });
     </script>
-    <!-- Lottie Animation Script -->
-</head>
-
-<body>
-    <header>
-        <div class="logo">
-            <a href="index.html"><img src="../images/navlogo.png" alt="logo"></a>
-        </div>
-        <div class="nav-links">
-            <ul class="dropdown-main-menu">
-                <li>
-                    <a href="UnderstandingPNI.html">Understanding PNI</a>
-                    <ul class="submenu">
-                        <!--update #section1 with section ID on page-->
-                        <li><a href="UnderstandingPNI.html#arm-injuries-section">Arm Injuries</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="AtTheClinic.html">At the Clinic</a>
-                    <ul class="submenu">
-                        <!--update #section1 with section ID on page-->
-                        <li><a href="AtTheClinic.html#your-care-team-section">Your Care Team</a></li>
-                        <li><a href="AtTheClinic.html#diagnostic-testing-section">Diagnostic Testing</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="RecoveryProcess.html">Recovery Process</a>
-                    <ul class="submenu">
-                        <!--update #section1 with section ID on page-->
-                        <li><a href="RecoveryProcess.html#treatment-options-section">Treatment Options</a></li>
-                        <li><a href="RecoveryProcess.html#rehabilitation-section">Rehabilitation</a></li>
-                    </ul>
-                </li>
-                <li><a href="AboutNerveUs.html">About NerveUs</a></li>
-            </ul>
-        </div>
-    </header>
-
-        <main class="main-content two-column-layout">
-        <div class="toc">
-            <h1>Understanding PNI</h1>
-            <ul>
-                <li><a href="#anatomy-of-nerve-section">Anatomy of a Nerve</a></li>
-                <li><a href="#peripheral-nervous-system-section">The Peripheral Nervous System</a></li>
-                <li><a href="#classifying-injury-section">Classifying an Injury</a></li>
-                <li class = "main-section"><span>Arm Injuries</span></li> <li class = "sub-section"><a href="#brachial-plexus-section">The Brachial Plexus</a></li>
-                <li class = "sub-section"><a href="#types-of-injuries-section">Types of Injuries</a></li>
-            </ul>
-        </div>
-
-
-        <div class="main-content-column">
-            <nav aria-label="Breadcrumb">
-                <ul class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active"><a href="UnderstandingPNI.html">Understanding PNI</a></li>
-                </ul>
-            </nav>
-
-            <h1>Understanding PNI</h1>
-
-            <section id="anatomy-of-nerve-section">
-                <h2>Anatomy of a Nerve</h2>
-                <h3>What is a nerve?</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. 
-                </p>
-
-                <br>
-
-                <h3>What is the structure of a nerve?</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
-                </p>
-
-                <br>
-
-                <div id="interactiveSliderBox">
-                    <div id="animationWrapper">
-
-                        <!--Bottom Layers-->
-                        <img id="skinOverlay" src="../images/BPanimation/skin layer.png" alt="Skin Overlay" style="display:none;">
-                        <img id="boneBehind" src="../images/BPanimation/bone behind.png" alt="Bone Behind" style="display:none;">
-
-                        <!-- Animation container -->
-                        <div id="animationContainer"></div>
-
-                        <!-- Top Layer -->
-                        <img id="boneFront" src="../images/BPanimation/bone in front.png" alt="Bone Front" style="display:none;">
-
-                        <!--Buttons-->
-                        <button id="toggleSkinOverlayBtn" onclick="toggleSkinOverlay()">Show Skin</button>
-                        <button id="toggleBoneOverlayBtn" onclick="toggleBoneOverlay()">Show Bone</button>
-
-                    </div>
-                    
-
-                    <div class="sliderContainer">
-                        <!-- Slider Wrapper to hold both slider and tick marks -->
-                        <div class="slider-wrapper">
-                            <input id="slider" type="range" max="1" min="0" value="0" step="any" class="slider" />
-                            <div id="tickmarks"></div> <!-- Tick marks inside the wrapper -->
-                        </div>
-                    </div>
-
-                    <div class="interactive-slider-description-box">
-                        <p>The above is an interactive animation. Click and drag the slider to the left or right to navigate through the lesson.</p>
-
-                        <a href="#" class="interactive-slider-download-button" download>
-                            Download as video
-                        </a>
-
-                        <button class="accordion">Lesson summary</button>
-                        <div class="panel">
-                            <div class="panel-content">
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  </p>
-                                <br>
-                                <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="peripheral-nervous-system-section">
-                <h2>The Peripheral Nervous System</h2>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-                </p>
-            </section>
-
-            <section id="classifying-injury-section">
-                <h2>Classifying an Injury</h2>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-                </p>
-            </section>
-
-            <h1 id="arm-injuries-section">Arm Injuries</h1>
-
-            <section id="brachial-plexus-section">
-                <h2>The Brachial Plexus</h2>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-                </p>
-            </section>
-
-            <section id="types-of-injuries-section">
-                <h2>Types of Injuries</h2>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-                </p>
-            </section>
-
-            <div class="next-chapter-section">
-                <hr>
-                <h2>Go to next chapter:</h2>
-                <a href="AtTheClinic.html" class="next-chapter-button">
-                    <div class="next-chapter-button-content">
-                        <h3>At the Clinic</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at erat magna.</p>
-                    </div>
-                    <span class="arrow-icon">&#8594;</span>
-                </a>
-            </div>
-            </div>
-        </div>
-
-        <button id="back-to-top">Back to Top</button>
-
-
-
-    </main>
-
-    <footer>
-        <div class="footer-left">
-            <a href="index.html"><img src="../images/boxlogo.png" alt="NerveUs Logo" class="footer-logo"></a>
-            <div class="footer-text">
-                <h3><a href="AboutNerveUs.html">About NerveUs</a></h3> <p>Have feedback or suggestions? Let us know by emailing <a href="mailto:bonn.wang@mail.utoronto.ca">bonn.wang@mail.utoronto.ca</a></p>
-                <p>&copy; 2025 Bonnie Wang. All rights reserved.</p>
-            </div>
-        </div>
-        <div class="footer-right">
-            <ul>
-                <li><a href="UnderstandingPNI.html">Understanding PNI</a></li>
-                <li><a href="AtTheClinic.html">At the Clinic</a></li>
-                <li><a href="RecoveryProcess.html">Recovery Process</a></li>
-            </ul>
-        </div>
-    </footer>
     
     <script>
     var acc = document.getElementsByClassName("accordion");
@@ -347,6 +347,37 @@
         } 
       });
     }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get references to the slider and indicator elements
+            const slider = document.getElementById('mySlider');
+            const sliderIndicator = document.getElementById('sliderIndicator');
+            const sliderValueDisplay = document.getElementById('sliderValue');
+
+            // Initialize the displayed value
+            sliderValueDisplay.textContent = slider.value;
+
+            // Function to hide the indicator
+            const hideIndicator = () => {
+                // Add the 'hidden' class to fade out the indicator
+                sliderIndicator.classList.add('hidden');
+            };
+
+            // Event listener for when the user changes the slider's value
+            slider.addEventListener('input', () => {
+                hideIndicator(); // Hide the indicator on input
+                sliderValueDisplay.textContent = slider.value; // Update the displayed value
+            });
+
+            // Event listeners for initial interaction (click/touch) on the slider
+            slider.addEventListener('mousedown', hideIndicator); // For mouse clicks on the slider track
+            slider.addEventListener('touchstart', hideIndicator); // For touch on mobile devices
+
+            // Event listener for when the slider gains focus (e.g., via keyboard navigation)
+            slider.addEventListener('focus', hideIndicator);
+        });
     </script>
 
     <script src="../scripts/LottieInteractiveSlider/player2.js"></script>

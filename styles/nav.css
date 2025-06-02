@@ -1,7 +1,7 @@
 /* navigation bar */
 header {
     color: #757575;
-    font-size: 1.25em; /* Adjusted from 1em (1 * 20px = 20px, now 1.25 * 16px = 20px) */
+    font-size: 1em; /* Adjusted from 1em (1 * 20px = 20px, now 1.25 * 16px = 20px) */
     font-weight: 600; /* semibold */
     line-height: 1.5; /* Changed to a numeric value */
     display: flex; /* Enable flexbox for the navigation bar */
@@ -39,7 +39,7 @@ header .nav-links{
 }
 
 .logo img {
-    height: 72px;
+    height: 64px;
     width: auto; /* Maintain aspect ratio */
 }
 

@@ -158,7 +158,7 @@
     font-family: Geist, Helvetica, sans-serif;
     font-weight: 400;
     border-radius: 10px;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+    transition: background-color 0.3s ease, color 0.3s ease, scale 0.3s ease; /* Smooth transition for hover effect */
   }
 
 #toggleBoneOverlayBtn {
@@ -217,7 +217,7 @@
     align-items: center;
     padding: 12px 24px;
     border: 1px solid #6E6EFF; /* Purple border */
-    border-radius: 15px; /* Rounded corners */
+    border-radius: 30px; /* Rounded corners */
     background-color: #ffffff; /* White background */
     color: #6E6EFF; /* Purple text */
     font-weight: 600;

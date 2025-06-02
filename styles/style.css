@@ -80,7 +80,14 @@ body{
     margin-left: 20px; /* Added margin-left to main content */
 }
 
-
+.hyperlink {
+    color: #757575; /* Purple color for links */
+    text-decoration:underline; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+.hyperlink:hover {
+    color: #404040; /* Darker purple on hover */
+}
 
 
 
