@@ -40,7 +40,7 @@
 
 /* Slider */
 .slider {
-    -webkit-appearance: none;
+    appearance: none;
     width: 100%; /* Make the slider take up full width */
     height: 12px;
     border-radius: 5px;

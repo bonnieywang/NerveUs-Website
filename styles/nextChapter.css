@@ -1,0 +1,71 @@
+/* New styles for the "Go to next chapter" section */
+.next-chapter-section {
+    max-width: 1200px; /* This will be overridden by parent's width */
+    margin: 60px 0 40px 0; /* Top margin, no horizontal margin, bottom margin */
+    padding: 0; /* No padding needed here, handled by button */
+}
+
+.next-chapter-section hr {
+    border: none;
+    border-top: 1px solid #e0e0e0; /* Light gray line */
+    margin-bottom: 40px; /* Space below the line */
+}
+
+.main-content-column .next-chapter-section h2 {
+    font-size: 1.5em; /* Adjust as needed */
+    font-weight: 600;
+    color: #404040;
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.next-chapter-button {
+    display: flex;
+    align-items: center;
+    background-color: #EDF0FF; /* Light purple background */
+    border: 1px solid #6E6EFF; /* Purple border */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px 30px; /* Padding inside the button */
+    text-align: left;
+    color: #404040;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Smooth transitions */
+    width: 100%; /* Make button take full width of its parent column */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.next-chapter-button:hover {
+background-color: #e0e6ff; /* Slightly darker purple on hover */
+border-color: #5a5aff; /* Darker purple border on hover */
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+color: #6E6EFF;
+
+}
+
+.next-chapter-button-content {
+    flex-grow: 1; /* Allows content to take available space */
+}
+
+/* Increased specificity for h3 and p inside the next-chapter-button */
+.next-chapter-section .next-chapter-button h3 {
+    font-size: 1.5em; /* Title font size */
+    font-weight: 600;
+    color: #404040; /* Changed to a darker shade */
+    margin-bottom: 5px; /* Space between title and description */
+}
+
+.next-chapter-section .next-chapter-button p {
+    font-size: 0.9em; /* Description font size */
+    font-weight: 300;
+    color: #404040; /* Changed to a darker shade */
+    line-height: 1.3;
+}
+
+.next-chapter-button .arrow-icon {
+    font-size: 2em; /* Size of the arrow icon */
+    color: #6E6EFF; /* Purple arrow */
+    margin-left: 20px; /* Space between text and arrow */
+}
+
+.next-chapter-button:hover,
+.next-chapter-button:hover h3 {
+color: #6E6EFF;
+}

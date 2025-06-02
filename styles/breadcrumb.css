@@ -1,0 +1,38 @@
+/* Breadcrumb Styles */
+.breadcrumb {
+    font-family: 'Geist', 'Helvetica', sans-serif; /* Apply Geist font */
+    font-size: 16px; /* This was already 16px, no change needed */
+    color: #757575;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.breadcrumb li {
+    margin-right: 8px;
+    display: inline-flex; /* Use inline-flex for better alignment */
+    align-items: center;
+}
+
+.breadcrumb li a {
+    color: #757575;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb li a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.breadcrumb li:not(:last-child)::after {
+    content: ">";
+    margin-left: 8px;
+    color: #757575;
+}
+
+.breadcrumb li.active {
+    color: #757575;
+    text-decoration: underline;
+}

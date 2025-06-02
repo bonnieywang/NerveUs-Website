@@ -1,0 +1,118 @@
+/* ToC title */
+.toc h1 {
+    font-size: 1.25em; /* Adjusted from 1em (1 * 20px = 20px, now 1.25 * 16px = 20px) */
+    font-weight: 600;
+}
+
+.toc ul {
+    list-style-type: none;
+    padding: 8px 0;
+}
+
+.toc li a {
+    font-size: 1em; /* Adjusted from 0.8em (0.8 * 20px = 16px, now 1 * 16px = 16px) */
+    font-weight: 400;
+    color: #757575;
+    text-decoration: none;
+    display: block;
+    padding: 10px 16px;
+    text-align: left; /* Added left alignment for links */
+    transition: color 0.2s ease, background-color 0.3s ease;
+}
+
+.toc li a:hover {
+    color: #000000;
+    border-radius: 10px;
+    background: #EDF0FF;
+}
+
+
+.toc li a.active-toc-link { /* New style for active TOC link */
+    color: #6E6EFF; /* Highlight color for active TOC link */
+    border-radius: 10px;
+    background: #EDF0FF;
+}
+
+/* Specific style for the non-clickable "Arm Injuries" label */
+.toc ul li.main-section span {
+    font-weight: 600; /* Keep bold as it's a main section */
+    font-size: 1em; /* Adjusted from 0.8em (0.8 * 20px = 16px, now 1 * 16px = 16px) */
+    color: #404040; /* Match the color of .toc h1 */
+    display: block; /* Ensure it takes up full width for padding */
+    padding: 10px 16px; /* Match padding of other TOC items */
+    cursor: default; /* Change cursor to default to indicate non-clickable */
+    background-color: transparent; /* Ensure no background on hover */
+}
+
+/* Ensure no hover effects for the span */
+.toc ul li.main-section span:hover {
+    color: #404040; /* Keep original color on hover */
+    background-color: transparent; /* No background change on hover */
+}
+
+/* sub-page styles */
+.toc ul li.main-section a{
+    font-weight: 600;
+    background-color: transparent;
+}
+
+.toc ul li.sub-section a {
+    padding-left: 30px; /* Indentation for sub-sections in sub-page */
+}
+
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    /* Left position is calculated by JavaScript */
+    left: auto;      /* Ensure left is not set by CSS to prevent horizontal stretching */
+    width: fit-content; /* Use fit-content to size to content */
+    height: auto;    /* Allow height to be determined by content and padding */
+    padding: 8px 16px; /* Keep padding for button size */
+    font-size: 1em; /* Adjusted from 0.8em (0.8 * 20px = 16px, now 1 * 16px = 16px) */
+    font-weight: 300;
+    color: #404040;
+    cursor: pointer;
+    border-radius: 10px; /* Rounded corners */
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    z-index: 1000;
+    background-color: #ffffff; /* Light background color */
+    border: 0px solid #757575; /* Border */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: inline-flex; /* Ensure it behaves like a button */
+    align-items: center;
+    justify-content: center;
+}
+
+#back-to-top:hover {
+    color: #6E6EFF;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #EDF0FF; /* Light background color */
+
+}
+
+#back-to-top:active {
+    color: #6E6EFF;
+}
+
+/* Media query for responsive adjustments for ToC */
+    @media (max-width: 768px) {
+        .two-column-layout .toc {
+            /* Ensure TOC is not sticky on small screens */
+            position: relative;
+            top: 0;
+            padding-right: 0; /* Reset padding to avoid extra space on small screens */
+            border-right: none;  /* Remove the border on small screens */
+            padding-left: 20px;
+        }
+
+        .main-content {
+        flex-direction: column;
+        padding: 24px;
+
+        }
+        .two-column-layout .main-content-column{
+        margin-left: 0;
+        }
+    }
