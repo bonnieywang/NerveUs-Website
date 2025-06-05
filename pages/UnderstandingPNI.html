@@ -18,10 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
-        <!--UIkit CSS and JS links
-    <link rel="stylesheet" href="../styles/uikit css/uikit.min.css" />
-    <script src="../scripts/uikit js/uikit.min.js"></script>
-    <script src="../scripts/uikit js/uikit-icons.min.js"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script> 
     </head>
 
 <body>
@@ -121,6 +118,9 @@
                         <div class="slider-wrapper">
                             <input id="slider" type="range" max="1" min="0" value="0" step="any" class="slider" />
                             <div id="tickmarks"></div> <!-- Tick marks inside the wrapper -->
+                            <div id="sliderIndicator" class="slider-handle-indicator absolute top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                            <img src="https://placehold.co/40x40/0000FF/FFFFFF?text=Slide" alt="Slide Indicator" class="w-10 h-10 rounded-full shadow-md">
+                            </div>
                         </div>
                     </div>
 
@@ -352,12 +352,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Get references to the slider and indicator elements
-            const slider = document.getElementById('mySlider');
+            const slider = document.getElementById('slider'); // Changed to 'slider' as per your HTML
             const sliderIndicator = document.getElementById('sliderIndicator');
-            const sliderValueDisplay = document.getElementById('sliderValue');
-
-            // Initialize the displayed value
-            sliderValueDisplay.textContent = slider.value;
 
             // Function to hide the indicator
             const hideIndicator = () => {
@@ -366,10 +362,7 @@
             };
 
             // Event listener for when the user changes the slider's value
-            slider.addEventListener('input', () => {
-                hideIndicator(); // Hide the indicator on input
-                sliderValueDisplay.textContent = slider.value; // Update the displayed value
-            });
+            slider.addEventListener('input', hideIndicator);
 
             // Event listeners for initial interaction (click/touch) on the slider
             slider.addEventListener('mousedown', hideIndicator); // For mouse clicks on the slider track

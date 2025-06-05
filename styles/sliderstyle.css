@@ -162,7 +162,7 @@
   }
 
 #toggleBoneOverlayBtn {
-    bottom: 50px;
+    bottom: 60px;
   }
 
 #toggleSkinOverlayBtn {
@@ -246,4 +246,33 @@
         width: 100%; /* Make button full width when stacked */
         justify-content: center; /* Center button content */
     }
+}
+
+/* Custom CSS for the animation and specific slider styling */
+@keyframes slideAndFade {
+    0% {
+        transform: translate(-70%, -50%); /* Start at the left end */
+        opacity: 0.5; /* Initial opacity set to 50% */
+    }
+
+    50% {
+        transform: translate(30%, -50%); /* Move to the right end */
+        opacity: 0.5; /* Maintain opacity */
+    }
+    100% {
+        transform: translate(-70%, -50%); /* Start at the left end */
+        opacity: 0.5; /* Initial opacity set to 50% */
+    }
+}
+
+/* Apply animation to the indicator */
+.slider-handle-indicator {
+    animation: slideAndFade 3s infinite ease-in-out;
+    transition: opacity 0.3s ease-out;
+    z-index: 3; /* Changed to 3 to be above the slider thumb */
+    opacity: 0.5; /* Initial opacity set to 50% */
+}
+
+.slider-handle-indicator.hidden {
+    opacity: 0;
 }
