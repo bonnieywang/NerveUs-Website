@@ -1,6 +1,8 @@
 /* for smooth scrolling when jumping to section in page */
 html {
     scroll-behavior: smooth;
+    overflow-y: scroll; /* <-- ADD THIS LINE */
+
 }
 
 /* general styles */
