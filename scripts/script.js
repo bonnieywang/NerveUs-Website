@@ -1,48 +1,69 @@
+// This single DOMContentLoaded listener will execute once the HTML document is fully loaded.
+// It's the best practice to wrap all DOM manipulation logic within this.
 document.addEventListener("DOMContentLoaded", () => {
-  const navLinks = document.querySelectorAll(".dropdown-main-menu > li > a");
-  const currentPath = window.location.pathname;
+  // --- 1. Navigation Active Link Functionality ---
+  // Purpose: Highlights the active link in the main navigation based on the current URL.
+  const setupNavActiveLinks = () => {
+    const navLinks = document.querySelectorAll(".dropdown-main-menu > li > a");
+    const currentPath = window.location.pathname;
 
-  navLinks.forEach((link) => {
-    const linkPath = link.pathname;
-    // Use endsWith to handle both /page.html and /page
-    if (currentPath.endsWith(linkPath)) {
-      link.parentElement.classList.add("active");
-    }
-  });
+    navLinks.forEach((link) => {
+      const linkPath = link.pathname;
+      // Use endsWith to handle both /page.html and /page
+      if (currentPath.endsWith(linkPath)) {
+        link.parentElement.classList.add("active");
+      }
+    });
+  };
+  setupNavActiveLinks(); // Call the function to set up nav links on load
 
-  // Back to top button functionality
-  const backToTopButton = document.getElementById("back-to-top");
-  const tocElement = document.querySelector(".toc"); // Get the TOC element
-  const footerElement = document.querySelector("footer"); // Get the footer element
+  // --- 2. Back to Top Button Functionality ---
+  // Purpose: Controls the visibility and position of the back-to-top button.
+  const setupBackToTopButton = () => {
+    const backToTopButton = document.getElementById("back-to-top");
+    // Use optional chaining (?. ) for elements that might not exist on all pages.
+    // This allows tocElement and footerElement to be undefined without throwing an error
+    // when trying to access their properties if they are null.
+    const tocElement = document.querySelector(".toc");
+    const footerElement = document.querySelector("footer");
 
-  // Function to position the back-to-top button
-  function positionBackToTopButton() {
-    if (!backToTopButton || !tocElement || !footerElement) return;
+    // Only proceed if the back-to-top button exists on the page.
+    if (!backToTopButton) return;
 
-    const tocRect = tocElement.getBoundingClientRect();
-    const buttonRect = backToTopButton.getBoundingClientRect();
-    const footerRect = footerElement.getBoundingClientRect();
+    // Function to position the back-to-top button
+    const positionBackToTopButton = () => {
+      // Return early if any required element for positioning is missing.
+      // This is a more robust check now that tocElement and footerElement might be null.
+      if (!tocElement || !footerElement) {
+        // If TOC or footer are missing, you might choose a fallback position
+        // e.g., backToTopButton.style.right = '20px'; backToTopButton.style.bottom = '20px';
+        return;
+      }
 
-    // Horizontal centering with TOC
-    const tocCenterX = tocRect.left + tocRect.width / 2;
-    const buttonLeft = tocCenterX - buttonRect.width / 2;
-    backToTopButton.style.left = `${buttonLeft}px`;
-    backToTopButton.style.right = "auto"; // Ensure right is not conflicting
+      const tocRect = tocElement.getBoundingClientRect();
+      const buttonRect = backToTopButton.getBoundingClientRect();
+      const footerRect = footerElement.getBoundingClientRect();
 
-    // Dynamic vertical positioning
-    const defaultBottomMargin = 20; // Desired margin from the bottom of the viewport
+      // Horizontal centering with TOC
+      const tocCenterX = tocRect.left + tocRect.width / 2;
+      const buttonLeft = tocCenterX - buttonRect.width / 2;
+      backToTopButton.style.left = `${buttonLeft}px`;
+      backToTopButton.style.right = "auto"; // Ensure right is not conflicting
 
-    // Calculate the bottom position: either default margin from viewport, or 20px above footer
-    // Math.max ensures the button never goes below the defaultBottomMargin
-    const newBottomValue = Math.max(
-      defaultBottomMargin,
-      window.innerHeight - footerRect.top + defaultBottomMargin
-    );
+      // Dynamic vertical positioning
+      const defaultBottomMargin = 20; // Desired margin from the bottom of the viewport
 
-    backToTopButton.style.bottom = `${newBottomValue}px`;
-  }
+      // Calculate the bottom position: either default margin from viewport, or 20px above footer
+      // Math.max ensures the button never goes below the defaultBottomMargin
+      const newBottomValue = Math.max(
+        defaultBottomMargin,
+        window.innerHeight - footerRect.top + defaultBottomMargin
+      );
 
-  if (backToTopButton) {
+      backToTopButton.style.bottom = `${newBottomValue}px`;
+    };
+
+    // Event listener for click to scroll to top
     backToTopButton.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
@@ -50,11 +71,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Show/hide the button based on scroll position
+    // Event listener for scroll to show/hide and reposition the button
     window.addEventListener("scroll", () => {
       if (window.scrollY > 200) {
-        // Show after scrolling down 200px
-        backToTopButton.style.display = "block"; // Make it visible
+        backToTopButton.style.display = "inline-flex"; // Use inline-flex as per your CSS
       } else {
         backToTopButton.style.display = "none"; // Hide it
       }
@@ -65,108 +85,105 @@ document.addEventListener("DOMContentLoaded", () => {
     positionBackToTopButton();
     // Reposition on window resize
     window.addEventListener("resize", positionBackToTopButton);
-  }
-
-  // --- Table of Contents Active Link on Scroll (Revised) ---
-  const sections = document.querySelectorAll(".main-content-column section");
-  const tocLinks = document.querySelectorAll(".toc ul li a");
-  const tocMainSectionSpan = document.querySelector(
-    ".toc ul li.main-section span"
-  ); // Get the span for "Arm Injuries"
-
-  function updateActiveTocLink() {
-    let currentActiveSectionId = null;
-
-    // Determine which section is currently at the top of the viewport
-    for (let i = 0; i < sections.length; i++) {
-      const section = sections[i];
-      const rect = section.getBoundingClientRect();
-      // If the top of the section is at or just above the viewport top (within a small offset)
-      // and the section is still largely visible
-      if (rect.top <= 100 && rect.bottom > 100) {
-        // Using 100px offset from top
-        currentActiveSectionId = section.id;
-        break; // Found the top-most visible section, break the loop
-      }
-    }
-
-    // If no section is found (e.g., at the very top of the page before any section starts)
-    // or if the first section is the target and we are at the very top
-    if (
-      !currentActiveSectionId &&
-      window.scrollY < 100 &&
-      sections.length > 0
-    ) {
-      currentActiveSectionId = sections[0].id;
-    }
-
-    // Remove active class from all TOC links and the span
-    tocLinks.forEach((link) => {
-      link.classList.remove("active-toc-link");
-    });
-    if (tocMainSectionSpan) {
-      tocMainSectionSpan.classList.remove("active-toc-link");
-    }
-
-    // Add active class to the corresponding TOC link or span
-    if (currentActiveSectionId) {
-      const correspondingLink = document.querySelector(
-        `.toc ul li a[href="#${currentActiveSectionId}"]`
-      );
-      if (correspondingLink) {
-        correspondingLink.classList.add("active-toc-link");
-      } else if (
-        currentActiveSectionId === "arm-injuries-section" &&
-        tocMainSectionSpan
-      ) {
-        // Special case for "Arm Injuries" if it's a non-clickable span
-        tocMainSectionSpan.classList.add("active-toc-link");
-      }
-    }
-  }
-
-  // Listen for scroll events to update the active TOC link
-  window.addEventListener("scroll", updateActiveTocLink);
-
-  // Call it once on load to set the initial active link
-  updateActiveTocLink();
-
-  // --- End Table of Contents Active Link on Scroll (Revised) ---
-
-  // Cursor hover over slider functionality
-  // Get references to the slider and indicator elements
-  const slider = document.getElementById("slider"); // Changed to 'slider' as per your HTML
-  const sliderIndicator = document.getElementById("sliderIndicator");
-
-  // Function to hide the indicator
-  const hideIndicator = () => {
-    // Add the 'hidden' class to fade out the indicator
-    sliderIndicator.classList.add("hidden");
   };
+  setupBackToTopButton(); // Call the function to set up back-to-top button on load
 
-  // Event listener for when the user changes the slider's value
-  slider.addEventListener("input", hideIndicator);
+  // --- 3. Table of Contents Active Link on Scroll ---
+  // Purpose: Highlights the active link in the TOC based on scroll position.
+  const setupTocActiveLinks = () => {
+    const sections = document.querySelectorAll(".main-content-column section");
+    const tocLinks = document.querySelectorAll(".toc ul li a");
+    const tocMainSectionSpan = document.querySelector(
+      ".toc ul li.main-section span"
+    );
 
-  // Event listeners for initial interaction (click/touch) on the slider
-  slider.addEventListener("mousedown", hideIndicator); // For mouse clicks on the slider track
-  slider.addEventListener("touchstart", hideIndicator); // For touch on mobile devices
+    // Only proceed if sections and TOC links exist.
+    if (sections.length === 0 || tocLinks.length === 0) return;
 
-  // Event listener for when the slider gains focus (e.g., via keyboard navigation)
-  slider.addEventListener("focus", hideIndicator);
-});
+    const updateActiveTocLink = () => {
+      let currentActiveSectionId = null;
 
-// Accordion functionality
-document.addEventListener("DOMContentLoaded", () => {
-  var acc = document.getElementsByClassName("accordion");
-  for (var i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function () {
-      this.classList.toggle("active");
-      var panel = this.nextElementSibling;
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
+      for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom > 100) {
+          currentActiveSectionId = section.id;
+          break;
+        }
       }
+
+      if (
+        !currentActiveSectionId &&
+        window.scrollY < 100 &&
+        sections.length > 0
+      ) {
+        currentActiveSectionId = sections[0].id;
+      }
+
+      tocLinks.forEach((link) => {
+        link.classList.remove("active-toc-link");
+      });
+      if (tocMainSectionSpan) {
+        tocMainSectionSpan.classList.remove("active-toc-link");
+      }
+
+      if (currentActiveSectionId) {
+        const correspondingLink = document.querySelector(
+          `.toc ul li a[href="#${currentActiveSectionId}"]`
+        );
+        if (correspondingLink) {
+          correspondingLink.classList.add("active-toc-link");
+        } else if (
+          currentActiveSectionId === "arm-injuries-section" &&
+          tocMainSectionSpan
+        ) {
+          tocMainSectionSpan.classList.add("active-toc-link");
+        }
+      }
+    };
+
+    window.addEventListener("scroll", updateActiveTocLink);
+    updateActiveTocLink(); // Initial call to set active link on load
+  };
+  setupTocActiveLinks(); // Call the function to set up TOC active links
+
+  // --- 4. Accordion Functionality ---
+  // Purpose: Implements expand/collapse behavior for accordion elements.
+  const setupAccordions = () => {
+    const accordions = document.getElementsByClassName("accordion"); // Use const/let
+
+    // Convert HTMLCollection to Array for easier iteration with forEach
+    Array.from(accordions).forEach((accordion) => {
+      accordion.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling; // Use const/let
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
     });
-  }
+  };
+  setupAccordions(); // Call the function to set up accordions
+
+  // --- 5. Cursor Hover Over Slider Functionality ---
+  // Purpose: Hides a slider indicator on user interaction.
+  const setupSliderIndicator = () => {
+    const slider = document.getElementById("slider");
+    const sliderIndicator = document.getElementById("sliderIndicator");
+
+    // Only proceed if both slider elements exist.
+    if (!slider || !sliderIndicator) return;
+
+    const hideIndicator = () => {
+      sliderIndicator.classList.add("hidden");
+    };
+
+    slider.addEventListener("input", hideIndicator);
+    slider.addEventListener("mousedown", hideIndicator);
+    slider.addEventListener("touchstart", hideIndicator);
+    slider.addEventListener("focus", hideIndicator);
+  };
+  setupSliderIndicator(); // Call the function to set up slider indicator
 });
