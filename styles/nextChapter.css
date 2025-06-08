@@ -1,4 +1,13 @@
-/* New styles for the next chapter box */
+.next-chapter-section {
+    display: flex; /* Makes the container a flex container */
+    justify-content: center; /* Changed from space-around to center */
+    align-items: flex-start; /* Aligns items to the top of the container if they have different heights */
+    gap: 20px; /* Adds space between the flex items (modern CSS, excellent for gaps) */
+    flex-wrap: wrap; /* Allows the boxes to wrap to the next line on smaller screens */
+    padding: 0 15px; /* Example padding */
+}
+
+/* Rest of your CSS remains the same */
 .next-chapter-box {
     background-color: #EDF0FF; /* Light purple background */
     border: 1px solid #6E6EFF; /* Purple border */
@@ -8,8 +17,12 @@
     flex-direction: column;
     align-items: center; /* Center content horizontally */
     justify-content: center; /* Center content vertically */
-    text-align: left;
-    width: 40%; /* Take full width of its parent column */
+    text-align: left; /* Keep text aligned left within the box */
+    /* Remove 'width: 40%;' as it might conflict with flex properties and was likely for a different context */
+    flex: 1; /* Allows boxes to grow and shrink, taking equal available space */
+    min-width: 280px; /* Ensures boxes don't get too small on narrow screens before wrapping */
+    max-width: 45%; /* Limits their maximum width to ensure they don't get too wide on large screens */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width */
 }
 
 /* Styles for the new heading within the next chapter box */
@@ -51,4 +64,16 @@
     border: 1px solid #6E6EFF; /* Purple border */
     color: #6E6EFF; /* Purple text */
     border-color: #6E6EFF;
+}
+
+/* Optional: Media query for responsiveness */
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    .next-chapter-section {
+        flex-direction: column; /* Stacks the boxes vertically on smaller screens */
+        align-items: center; /* Centers them horizontally when stacked */
+    }
+    .next-chapter-box {
+        max-width: 90%; /* Allows boxes to take up more width when stacked */
+        margin-bottom: 20px; /* Add some space between stacked boxes */
+    }
 }
