@@ -75,7 +75,6 @@
     padding-left: 30px; /* Indentation for sub-sections in sub-page */
 }
 
-
 /* Back to Top Button */
 #back-to-top {
     position: fixed;
@@ -84,21 +83,22 @@
     width: fit-content; /* Use fit-content to size to content */
     height: auto;    /* Allow height to be determined by content and padding */
     padding: 8px 24px; /* Keep padding for button size */
-    font-size: 1em; /* Adjusted from 0.8em (0.8 * 20px = 16px, now 1 * 16px = 16px) */
+    font-size: 1em;
     font-weight: 600;
     color: #757575;
     cursor: pointer;
     border-radius: 10px; /* Rounded corners */
     text-decoration: none;
-    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, scale 0.2s ease; /* Smooth transitions */
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, scale 0.2s ease;
     z-index: 1000;
     background-color: #ffffff; /* Light background color */
     border: 0px solid #757575; /* Border */
-    display: inline-flex; /* Ensure it behaves like a button */
+    display: none; /* ADDED: Hides the button by default */
+    /* When JavaScript sets display: block, this will be overridden,
+       and the button will still behave as inline-flex due to cascade. */
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-
 }
 
 #back-to-top:hover {
