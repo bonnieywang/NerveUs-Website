@@ -6,8 +6,6 @@
     <title>NerveUs Home Page</title>
     <!--stylesheets-->
     <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/nav.css">
-    <link rel="stylesheet" href="../styles/footer.css">
     <link rel="stylesheet" href="../styles/toc.css">
     <link rel="stylesheet" href="../styles/breadcrumb.css">
     <link rel="stylesheet" href="../styles/sliderstyle.css">
@@ -58,13 +56,17 @@
 
     <main class="main-content two-column-layout">
         <div class="toc">
-            <h1>Understanding PNI</h1>
+            <h1>At the Clinic</h1>
             <ul>
-                <li><a href="#anatomy-of-nerve-section">Anatomy of a Nerve</a></li>
-                <li><a href="#peripheral-nervous-system-section">The Peripheral Nervous System</a></li>
-                <li><a href="#classifying-injury-section">Classifying an Injury</a></li>
-                <li class = "main-section"><span>Arm Injuries</span></li> <li class = "sub-section"><a href="#nerves-in-the-arm">Nerves in the Arm</a></li>
-                <li class = "sub-section"><a href="#types-of-injuries-section">Types of Injuries</a></li>
+                <li class = "main-section"><span>Your Care Team</span></li> 
+                    <li class = "sub-section"><a href="#physiatrist">Physiatrist</a></li>
+                    <li class = "sub-section"><a href="#surgeon">Surgeon</a></li>
+                    <li class = "sub-section"><a href="#physical-therapist">Physical Therapist</a></li>
+                    <li class = "sub-section"><a href="#occupational-therapist">Occupational Therapist</a></li>
+                <li class = "main-section"><span>Diagnostic Testing</span></li> 
+                    <li class = "sub-section"><a href="#medical-history">Medical History and Physical Exam</a></li>
+                    <li class = "sub-section"><a href="#medical-imaging">Medical Imaging</a></li>
+                    <li class = "sub-section"><a href="#nerve-tests">Nerve Tests</a></li>
             </ul>
         </div>
 
@@ -73,15 +75,18 @@
             <nav aria-label="Breadcrumb">
                 <ul class="breadcrumb">
                     <li><a href="index.html">Home</a></li>
-                    <li class="active"><a href="UnderstandingPNI.html">Understanding PNI</a></li>
+                    <li class="active"><a href="AtTheClinic.html">At the Clinic</a></li>
                 </ul>
             </nav>
 
-            <h1>Understanding PNI</h1>
+            <h1>At the Clinic</h1>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. 
+                <br>
+            <h1>Your Care Team</h1>
 
-            <section id="anatomy-of-nerve-section">
-                <h2>Anatomy of a Nerve</h2>
-                <h3>What is a nerve?</h3>
+            <section id="physiatrist">
+                <h2 class="inline-header">Physiatrist</h2> 
+                <h3 class="inline-header">(fiz-ay-uh-trist)</h3>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. 
                 </p>
 
@@ -91,57 +96,6 @@
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
                 </p>
 
-                <br>
-
-                <div id="interactiveSliderBox">
-                    <div id="animationWrapper">
-
-                        <!--Bottom Layers-->
-                        <img id="skinOverlay" src="../images/BPanimation/skin layer.png" alt="Skin Overlay" style="display:none;">
-                        <img id="boneBehind" src="../images/BPanimation/bone behind.png" alt="Bone Behind" style="display:none;">
-
-                        <!-- Animation container -->
-                        <div id="animationContainer"></div>
-
-                        <!-- Top Layer -->
-                        <img id="boneFront" src="../images/BPanimation/bone in front.png" alt="Bone Front" style="display:none;">
-
-                        <!--Buttons-->
-                        <button id="toggleSkinOverlayBtn" onclick="toggleSkinOverlay()">Show Skin</button>
-                        <button id="toggleBoneOverlayBtn" onclick="toggleBoneOverlay()">Show Bone</button>
-
-                    </div>
-                    
-
-                    <div class="sliderContainer">
-                        <!-- Slider Wrapper to hold both slider and tick marks -->
-                        <div class="slider-wrapper">
-                            <input id="slider" type="range" max="1" min="0" value="0" step="any" class="slider" />
-                            <div id="tickmarks"></div> <!-- Tick marks inside the wrapper -->
-                            <div id="sliderIndicator" class="slider-handle-indicator absolute top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                            <img src="https://placehold.co/40x40/0000FF/FFFFFF?text=Slide" alt="Slide Indicator" class="w-10 h-10 rounded-full shadow-md">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="interactive-slider-description-box">
-                        <p>The above is an interactive animation. Click and drag the slider to the left or right to navigate through the lesson. <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" class="hyperlink">CC BY-NC-ND 4.0.</a> </p>
-
-                        <a href="../videos/sample video.mov" download="structure of nerve"class="interactive-slider-download-button" download>
-                            Download as video
-                        </a>
-
-                        <button class="accordion">Lesson summary</button>
-                        <div class="panel">
-                            <div class="panel-content">
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  </p>
-                                <br>
-                                <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <section id="peripheral-nervous-system-section">
@@ -207,7 +161,7 @@
         </div>
     </footer>
 
-    <script src=“../scripts/script.js”></script>
+    <script src="../scripts/script.js"></script>
     <script src="../scripts/LottieInteractiveSlider/player2.js"></script>
     <script src="../scripts/LottieInteractiveSlider/lottiecontrol2.js"></script>
     <script src="../scripts/LottieInteractiveSlider/togglebutton.js"></script>
