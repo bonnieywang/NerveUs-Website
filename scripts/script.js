@@ -22,8 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const setupBackToTopButton = () => {
     const backToTopButton = document.getElementById("back-to-top");
     // Use optional chaining (?. ) for elements that might not exist on all pages.
-    // This allows tocElement and footerElement to be undefined without throwing an error
-    // when trying to access their properties if they are null.
     const tocElement = document.querySelector(".toc");
     const footerElement = document.querySelector("footer");
 
@@ -33,10 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Function to position the back-to-top button
     const positionBackToTopButton = () => {
       // Return early if any required element for positioning is missing.
-      // This is a more robust check now that tocElement and footerElement might be null.
       if (!tocElement || !footerElement) {
-        // If TOC or footer are missing, you might choose a fallback position
-        // e.g., backToTopButton.style.right = '20px'; backToTopButton.style.bottom = '20px';
         return;
       }
 
@@ -53,8 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // Dynamic vertical positioning
       const defaultBottomMargin = 20; // Desired margin from the bottom of the viewport
 
-      // Calculate the bottom position: either default margin from viewport, or 20px above footer
-      // Math.max ensures the button never goes below the defaultBottomMargin
       const newBottomValue = Math.max(
         defaultBottomMargin,
         window.innerHeight - footerRect.top + defaultBottomMargin
@@ -71,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Event listener for scroll to show/hide and reposition the button
+    // Show/hide the button based on scroll position
     window.addEventListener("scroll", () => {
       if (window.scrollY > 200) {
         backToTopButton.style.display = "inline-flex"; // Use inline-flex as per your CSS
@@ -88,18 +81,20 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   setupBackToTopButton(); // Call the function to set up back-to-top button on load
 
-  // --- 3. Table of Contents Active Link on Scroll ---
-  // Purpose: Highlights the active link in the TOC based on scroll position.
+  // --- 3. Table of Contents Active Link on Scroll & Click ---
+  // Purpose: Highlights the active link in the TOC based on scroll position and expands sub-menus on click.
   const setupTocActiveLinks = () => {
     const sections = document.querySelectorAll(".main-content-column section");
     const tocLinks = document.querySelectorAll(".toc ul li a");
     const tocMainSectionSpan = document.querySelector(
       ".toc ul li.main-section span"
     );
+    const mainTocLinks = document.querySelectorAll(".toc .main-section > a");
 
-    // Only proceed if sections and TOC links exist.
+    // Only proceed if sections or TOC links exist.
     if (sections.length === 0 || tocLinks.length === 0) return;
 
+    // Function to update active link on scroll
     const updateActiveTocLink = () => {
       let currentActiveSectionId = null;
 
@@ -120,12 +115,19 @@ document.addEventListener("DOMContentLoaded", () => {
         currentActiveSectionId = sections[0].id;
       }
 
+      // --- NEW: Clear all active classes and collapse all sub-TOCs at the start ---
+      // This ensures a clean state before expanding the relevant one below.
       tocLinks.forEach((link) => {
         link.classList.remove("active-toc-link");
       });
       if (tocMainSectionSpan) {
         tocMainSectionSpan.classList.remove("active-toc-link");
       }
+      // CRUCIAL: Collapse all sub-TOCs first on every scroll event
+      document.querySelectorAll(".sub-toc").forEach((subToc) => {
+        subToc.classList.remove("expanded");
+      });
+      // --- END NEW ---
 
       if (currentActiveSectionId) {
         const correspondingLink = document.querySelector(
@@ -133,30 +135,100 @@ document.addEventListener("DOMContentLoaded", () => {
         );
         if (correspondingLink) {
           correspondingLink.classList.add("active-toc-link");
+          // If a sub-link is active, also highlight its parent main link and expand its sub-toc
+          const parentSubToc = correspondingLink.closest(".sub-toc");
+          if (parentSubToc) {
+            parentSubToc.classList.add("expanded"); // Make sure sub-toc is expanded
+            const mainSectionParent = parentSubToc.closest(".main-section");
+            if (mainSectionParent) {
+              const mainSectionLink = mainSectionParent.querySelector(
+                ".toc-main-section-link"
+              );
+              if (mainSectionLink) {
+                mainSectionLink.classList.add("active-toc-link");
+              }
+            }
+          } else {
+            // If the active section is a main link (not a sub-link), check if it has a direct sub-toc
+            // and expand it. This is for when main section itself is in view (e.g., #arm-injuries-section).
+            const directSubToc = correspondingLink.nextElementSibling;
+            if (directSubToc && directSubToc.classList.contains("sub-toc")) {
+              directSubToc.classList.add("expanded");
+            }
+          }
         } else if (
-          currentActiveSectionId === "arm-injuries-section" &&
+          // This handles cases where the active section's TOC entry might be a special span
+          currentActiveSectionId === "arm-injuries-section" && // Replace with actual ID if your main section is a span
           tocMainSectionSpan
         ) {
           tocMainSectionSpan.classList.add("active-toc-link");
+          const directSubToc = tocMainSectionSpan.nextElementSibling;
+          if (directSubToc && directSubToc.classList.contains("sub-toc")) {
+            directSubToc.classList.add("expanded");
+          }
         }
       }
     };
 
+    // Listen for scroll events to update the active TOC link
     window.addEventListener("scroll", updateActiveTocLink);
     updateActiveTocLink(); // Initial call to set active link on load
+
+    // --- NEW: Add click listener for TOC links to handle expansion/highlight ---
+    tocLinks.forEach((link) => {
+      link.addEventListener("click", function (event) {
+        // Prevent default hash behavior if you want to control scroll with JS or ensure no jump
+        // event.preventDefault(); // Keep commented out to allow page jump
+
+        // First, clear all active states from all links
+        document
+          .querySelectorAll(".sub-toc")
+          .forEach((st) => st.classList.remove("expanded")); // Always collapse all on click initially
+        mainTocLinks.forEach((mtl) => mtl.classList.remove("active-toc-link"));
+        tocLinks.forEach((tl) => tl.classList.remove("active-toc-link")); // Remove from all sub-links too
+
+        // Add active class to the clicked link
+        this.classList.add("active-toc-link");
+
+        // If a sub-section is clicked, ensure its parent `sub-toc` is expanded and main link highlighted
+        const parentSubToc = this.closest(".sub-toc");
+        if (parentSubToc) {
+          parentSubToc.classList.add("expanded"); // Expand the sub-TOC for the clicked sub-link
+          const mainSectionParent = parentSubToc.closest(".main-section");
+          if (mainSectionParent) {
+            // Assuming 'toc-main-section-link' is a class on the main link element
+            const mainSectionLink = mainSectionParent.querySelector(
+              ".toc-main-section-link"
+            );
+            if (mainSectionLink) {
+              mainSectionLink.classList.add("active-toc-link");
+            }
+          }
+        } else {
+          // If a main link is clicked (and it doesn't have a closest .sub-toc)
+          // IMPORTANT: Removed directToggle here. Its expansion/collapse is now ONLY
+          // managed by the scroll handler (`updateActiveTocLink`).
+          // The page jump will trigger the scroll handler.
+          // const directSubToc = this.nextElementSibling;
+          // if (directSubToc && directSubToc.classList.contains("sub-toc")) {
+          //   directSubToc.classList.toggle("expanded"); // <-- THIS LINE IS REMOVED
+          // }
+        }
+      });
+    });
   };
   setupTocActiveLinks(); // Call the function to set up TOC active links
 
   // --- 4. Accordion Functionality ---
   // Purpose: Implements expand/collapse behavior for accordion elements.
   const setupAccordions = () => {
-    const accordions = document.getElementsByClassName("accordion"); // Use const/let
+    const accordions = document.getElementsByClassName("accordion");
 
     // Convert HTMLCollection to Array for easier iteration with forEach
     Array.from(accordions).forEach((accordion) => {
       accordion.addEventListener("click", function () {
         this.classList.toggle("active");
-        const panel = this.nextElementSibling; // Use const/let
+        const panel = this.nextElementSibling;
         if (panel.style.maxHeight) {
           panel.style.maxHeight = null;
         } else {

@@ -48,27 +48,51 @@
 
 }
 
-/* Specific style for the non-clickable "Arm Injuries" label */
-.toc ul li.main-section span {
+/* Specific style for the expandable heading */
+.toc ul li.main-section .toc-main-section-link {
     font-weight: 600; /* Keep bold as it's a main section */
     font-size: 1em; /* Adjusted from 0.8em (0.8 * 20px = 16px, now 1 * 16px = 16px) */
     color: #404040; /* Match the color of .toc h1 */
     display: block; /* Ensure it takes up full width for padding */
-    padding: 10px 16px; /* Match padding of other TOC items */
-    cursor: default; /* Change cursor to default to indicate non-clickable */
+    padding: 10px 16px 0px 16px; /* Match padding of other TOC items */
+    cursor: pointer; /* Change cursor to default to indicate non-clickable */
     background-color: transparent; /* Ensure no background on hover */
+    transition: color 0.3s ease, background-color 0.3s ease;
+
 }
 
-/* Ensure no hover effects for the span */
-.toc ul li.main-section span:hover {
-    color: #404040; /* Keep original color on hover */
-    background-color: transparent; /* No background change on hover */
+.toc ul li.main-section .toc-main-section-link:hover {
+    color: #6E6EFF;
+    border-radius: 10px;
+    background: transparent;
 }
 
-/* sub-page styles */
-.toc ul li.main-section a{
-    font-weight: 600;
-    background-color: transparent;
+/* Style for the sub-sections container (initially hidden) */
+.sub-toc {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;     /* Initially hidden */
+    overflow: hidden;  /* Crucial to hide content overflow during height transition */
+    opacity: 0;        /* Start completely transparent for fade-in */
+    visibility: hidden;/* Hide from accessibility tree and prevent clicks when fully hidden */
+    transition: max-height 0.3s ease-out,
+                opacity 0.3s ease-out,
+                visibility 0s linear 0.3s;
+}
+
+/* When expanded */
+.sub-toc.expanded {
+    max-height: 500px; /* A value large enough to contain all sub-sections */
+    opacity: 1;        /* Fully opaque for fade-in */
+    visibility: visible;/* Make visible */
+
+    /* When expanding, visibility should become visible instantly (0s delay).
+     * When collapsing, this transition rule won't apply directly; the .sub-toc rule takes over.
+     */
+    transition: max-height 0.3s ease-out,
+                opacity 0.3s ease-out,
+                visibility 0s linear 0s; /* Make visible instantly when expanded */
 }
 
 .toc ul li.sub-section a {
