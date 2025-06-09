@@ -93,6 +93,7 @@ body{
 
 .inline-header {
   display: inline;
+  margin-bottom: 2px;
 }
 
 /* navigation bar */
