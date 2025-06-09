@@ -1,102 +1,132 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>NerveUs Home Page</title>
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/nav.css">
-    <link rel="stylesheet" href="./styles/footer.css">
-    <link rel="stylesheet" href="./styles/toc.css">
-    <link rel="stylesheet" href="./styles/breadcrumb.css">
-    <link rel="stylesheet" href="./styles/sliderstyle.css">
-    <link rel="stylesheet" href="./styles/nextChapter.css">
-    <link rel="stylesheet" href="./styles/lessonAccordion.css">
-    <link rel="stylesheet" href="./styles/modal.css">
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/nav.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
+    <link rel="stylesheet" href="./styles/toc.css" />
+    <link rel="stylesheet" href="./styles/breadcrumb.css" />
+    <link rel="stylesheet" href="./styles/sliderstyle.css" />
+    <link rel="stylesheet" href="./styles/nextChapter.css" />
+    <link rel="stylesheet" href="./styles/lessonAccordion.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
     <!--Google Font links-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
 
-    
     <!--Show current page as active in navigation bar-->
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const navLinks = document.querySelectorAll('.dropdown-main-menu > li > a');
+      document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll(
+          ".dropdown-main-menu > li > a"
+        );
         const currentPath = window.location.pathname;
 
-        navLinks.forEach(link => {
-            const linkPath = new URL(link.href).pathname;
-            // Use endsWith to handle both /page.html and /page
-            if (currentPath.endsWith(linkPath)) {
-                link.parentElement.classList.add('active');
-            }
+        navLinks.forEach((link) => {
+          const linkPath = new URL(link.href).pathname;
+          // Use endsWith to handle both /page.html and /page
+          if (currentPath.endsWith(linkPath)) {
+            link.parentElement.classList.add("active");
+          }
         });
-    });
-</script>
-</head>
+      });
+    </script>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="logo">
-            <a href="index.html"><img src="./images/navlogo.png" alt="logo"></a>
-        </div>
-        <div class="nav-links">
-            <ul class="dropdown-main-menu">
-                <li>
-                    <a href="./pages/UnderstandingPNI.html">Understanding PNI</a>
-                    <ul class="submenu">
-                        <!--update #section1 with section ID on page-->
-                        <li><a href="./pages/UnderstandingPNI.html#arm-injuries-section">Arm Injuries</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="./pages/AtTheClinic.html">At the Clinic</a>
-                    <ul class="submenu">
-                        <!--update #section1 with section ID on page-->
-                        <li><a href="./pages/AtTheClinic.html#section1">Your Care Team</a></li>
-                        <li><a href="./pages/AtTheClinic.html#section2">Diagnostic Testing</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="./pages/RecoveryProcess.html">Recovery Process</a>
-                    <ul class="submenu">
-                        <!--update #section1 with section ID on page-->
-                        <li><a href="./pages/RecoveryProcess.html#section1">Treatment Options</a></li>
-                        <li><a href="./pages/RecoveryProcess.html#section2">Rehabilitation</a></li>
-                    </ul>
-                </li>
-                <li><a href="./pages/AboutNerveUs.html">About NerveUs</a></li>
+      <div class="logo">
+        <a href="index.html"><img src="./images/navlogo.png" alt="logo" /></a>
+      </div>
+      <div class="nav-links">
+        <ul class="dropdown-main-menu">
+          <li>
+            <a href="./pages/UnderstandingPNI.html">Understanding PNI</a>
+            <ul class="submenu">
+              <!--update #section1 with section ID on page-->
+              <li>
+                <a href="./pages/UnderstandingPNI.html#arm-injuries-section"
+                  >Arm Injuries</a
+                >
+              </li>
             </ul>
-        </div>
+          </li>
+          <li>
+            <a href="./pages/AtTheClinic.html">At the Clinic</a>
+            <ul class="submenu">
+              <!--update #section1 with section ID on page-->
+              <li>
+                <a href="./pages/AtTheClinic.html#section1">Your Care Team</a>
+              </li>
+              <li>
+                <a href="./pages/AtTheClinic.html#section2"
+                  >Diagnostic Testing</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="./pages/CareAfterInjury.html">Care After Injury</a>
+            <ul class="submenu">
+              <!--update #section1 with section ID on page-->
+              <li>
+                <a href="./pages/CareAfterInjury.html#section1"
+                  >Treatment Options</a
+                >
+              </li>
+              <li>
+                <a href="./pages/CareAfterInjury.html#section2"
+                  >Rehabilitation</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li><a href="./pages/AboutNerveUs.html">About NerveUs</a></li>
+        </ul>
+      </div>
     </header>
 
     <main class="main-content one-column-layout">
-        <div class="main-content-column">
-            <h1>Home Page</h1>
-            <p>This is the one-column layout for the home page.</p>
-            <h2>Welcome</h2>
-            <p>Content for the welcome section.</p>
-        </div>
+      <div class="main-content-column">
+        <h1>Home Page</h1>
+        <p>This is the one-column layout for the home page.</p>
+        <h2>Welcome</h2>
+        <p>Content for the welcome section.</p>
+      </div>
     </main>
 
     <footer>
-        <div class="footer-left">
-            <a href="index.html"><img src="./images/boxlogo.png" alt="NerveUs Logo" class="footer-logo"></a>
-            <div class="footer-text">
-                <h3><a href="./pages/AboutNerveUs.html">About NerveUs</a></h3> <p>Have feedback or suggestions? Let us know by emailing <a href="mailto:bonn.wang@mail.utoronto.ca">bonn.wang@mail.utoronto.ca</a></p>
-                <p>&copy; 2025 Bonnie Wang. All rights reserved.</p>
-            </div>
+      <div class="footer-left">
+        <a href="index.html"
+          ><img
+            src="./images/boxlogo.png"
+            alt="NerveUs Logo"
+            class="footer-logo"
+        /></a>
+        <div class="footer-text">
+          <h3><a href="./pages/AboutNerveUs.html">About NerveUs</a></h3>
+          <p>
+            Have feedback or suggestions? Let us know by emailing
+            <a href="mailto:bonn.wang@mail.utoronto.ca"
+              >bonn.wang@mail.utoronto.ca</a
+            >
+          </p>
+          <p>&copy; 2025 Bonnie Wang. All rights reserved.</p>
         </div>
-        <div class="footer-right">
-            <ul>
-                <li><a href="./pages/UnderstandingPNI.html">Understanding PNI</a></li>
-                <li><a href="./pages/AtTheClinic.html">At the Clinic</a></li>
-                <li><a href="./pages/RecoveryProcess.html">Recovery Process</a></li>
-            </ul>
-        </div>
+      </div>
+      <div class="footer-right">
+        <ul>
+          <li><a href="./pages/UnderstandingPNI.html">Understanding PNI</a></li>
+          <li><a href="./pages/AtTheClinic.html">At the Clinic</a></li>
+          <li><a href="./pages/CareAfterInjury.html">Care After Injury</a></li>
+        </ul>
+      </div>
     </footer>
-
-    </body>
-
+  </body>
 </html>

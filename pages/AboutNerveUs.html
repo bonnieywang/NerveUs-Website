@@ -1,78 +1,84 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>NerveUs Home Page</title>
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css" />
     <!--Google Font links-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <!--UIkit CSS and JS links-->
     <link rel="stylesheet" href="../styles/uikit css/uikit.min.css" />
     <script src="../scripts/uikit js/uikit.min.js"></script>
     <script src="../scripts/uikit js/uikit-icons.min.js"></script>
     <!--Show current page as active in navigation bar-->
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const navLinks = document.querySelectorAll('.dropdown-main-menu > li > a');
+      document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll(
+          ".dropdown-main-menu > li > a"
+        );
         const currentPath = window.location.pathname;
 
-        navLinks.forEach(link => {
-            const linkPath = new URL(link.href).pathname;
-            // Use endsWith to handle both /page.html and /page
-            if (currentPath.endsWith(linkPath)) {
-                link.parentElement.classList.add('active');
-            }
+        navLinks.forEach((link) => {
+          const linkPath = new URL(link.href).pathname;
+          // Use endsWith to handle both /page.html and /page
+          if (currentPath.endsWith(linkPath)) {
+            link.parentElement.classList.add("active");
+          }
         });
-    });
-</script>
-</head>
+      });
+    </script>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="logo">
-            <a href="index.html"><img src="../images/navlogo.png" alt="logo"></a>
-        </div>
-        <div class="nav-links">
-            <ul class="dropdown-main-menu">
-                <li>
-                    <a href="UnderstandingPNI.html">Understanding PNI</a>
-                    <ul class="submenu">
-                        <!--update #section1 with section ID on page-->
-                        <li><a href="UnderstandingPNI.html#section1">Arm Injuries</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="AtTheClinic.html">At the Clinic</a>
-                    <ul class="submenu">
-                        <!--update #section1 with section ID on page-->
-                        <li><a href="AtTheClinic.html#section1">Your Care Team</a></li>
-                        <li><a href="AtTheClinic.html#section2">Diagnostic Testing</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="RecoveryProcess.html">Recovery Process</a>
-                    <ul class="submenu">
-                        <!--update #section1 with section ID on page-->
-                        <li><a href="RecoveryProcess.html#section1">Treatment Options</a></li>
-                        <li><a href="RecoveryProcess.html#section2">Rehabilitation</a></li>
-                    </ul>
-                </li>
-                <li><a href="AboutNerveUs.html">About NerveUs</a></li>
+      <div class="logo">
+        <a href="index.html"><img src="../images/navlogo.png" alt="logo" /></a>
+      </div>
+      <div class="nav-links">
+        <ul class="dropdown-main-menu">
+          <li>
+            <a href="UnderstandingPNI.html">Understanding PNI</a>
+            <ul class="submenu">
+              <!--update #section1 with section ID on page-->
+              <li><a href="UnderstandingPNI.html#section1">Arm Injuries</a></li>
             </ul>
-        </div>
+          </li>
+          <li>
+            <a href="AtTheClinic.html">At the Clinic</a>
+            <ul class="submenu">
+              <!--update #section1 with section ID on page-->
+              <li><a href="AtTheClinic.html#section1">Your Care Team</a></li>
+              <li>
+                <a href="AtTheClinic.html#section2">Diagnostic Testing</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="CareAfterInjury.html">Care After Injury</a>
+            <ul class="submenu">
+              <!--update #section1 with section ID on page-->
+              <li>
+                <a href="CareAfterInjury.html#section1">Treatment Options</a>
+              </li>
+              <li>
+                <a href="CareAfterInjury.html#section2">Rehabilitation</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="AboutNerveUs.html">About NerveUs</a></li>
+        </ul>
+      </div>
     </header>
-
 
     <!--example of section code for nav jump to section-->
     <section id="section1">
-        <h2>What is PNI?</h2>
-        <p>Content about what PNI is...</p>
-        </section>
-    
-    
-    </body>
-
+      <h2>What is PNI?</h2>
+      <p>Content about what PNI is...</p>
+    </section>
+  </body>
 </html>
