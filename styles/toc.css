@@ -112,11 +112,11 @@
     color: #757575;
     cursor: pointer;
     border-radius: 10px;
+    border: 1px solid #E0E0E0;
     text-decoration: none;
-    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, scale 0.2s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     z-index: 1000;
     background-color: #ffffff;
-    border: 0px solid #757575;
     display: none;
     align-items: center;
     justify-content: center;
@@ -127,8 +127,8 @@
     color: #6E6EFF;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     background-color: #EDF0FF; /* Light background color */
-    scale: 1.01; /* Slightly enlarge the button on hover */
-}
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);}
 
 #back-to-top:active {
     color: #6E6EFF;

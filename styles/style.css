@@ -481,7 +481,7 @@ footer {
     align-items: flex-start;
     text-align: left;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: 0.3s ease;
     color: inherit;
     text-decoration: none;
     overflow: hidden;
@@ -490,6 +490,8 @@ footer {
 .module-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+
 }
 
 .module-card-image-placeholder {

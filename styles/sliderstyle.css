@@ -152,17 +152,18 @@
     right: 24px;
     z-index: 5;
     background-color: rgba(255, 255, 255, 0.9);
-    border: none;
+    border: 1px solid #E0E0E0;
     padding: 8px 12px;
     cursor: pointer;
     font-family: Geist, Helvetica, sans-serif;
+    font-size: 16px;
     font-weight: 400;
     border-radius: 10px;
-    transition: background-color 0.3s ease, color 0.3s ease, scale 0.3s ease; /* Smooth transition for hover effect */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
   }
 
 #toggleBoneOverlayBtn {
-    bottom: 60px;
+    bottom: 65px;
   }
 
 #toggleSkinOverlayBtn {
@@ -174,7 +175,7 @@
 #toggleSkinOverlayBtn.active:hover, #toggleBoneOverlayBtn.active:hover {
     background-color: rgb(236, 246, 224) ; /* Change to a green background */
     color: #404040; /* Change text color to white */
-    scale: 1.05; /* Slightly enlarge the button on hover */
+    transform: translateY(-5px);
 }
   
   /* Active state for buttons */
