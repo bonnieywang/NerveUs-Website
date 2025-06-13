@@ -20,7 +20,7 @@ body{
     font-size: 17px; /* base em */
     font-weight: 300;
     line-height: 1.6; /* Standardized line height for all paragraphs */
-    /* Removed margin-bottom: 20px; */
+    margin-bottom: 20px; /* Standardized margin bottom for all paragraphs */
 }
 
 /* General paragraph styling */
