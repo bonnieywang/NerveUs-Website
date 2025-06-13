@@ -16,11 +16,19 @@ html {
 
 body{
     background-color: #ffffff;
-    color: #404040;
-    font-size: 16px; /* base em */
+    color: #404040; /* Base text color */
+    font-size: 17px; /* base em */
     font-weight: 300;
-    line-height: 1.4; /* Changed to a numeric value for better consistency */
+    line-height: 1.6; /* Standardized line height for all paragraphs */
+    /* Removed margin-bottom: 20px; */
 }
+
+/* General paragraph styling */
+p {
+    margin-bottom: 20px; /* Standardized margin bottom for all paragraphs */
+    color: #404040; /* Standardized text color for all paragraphs */
+}
+
 
 /* Heading styles for main content */
 .one-column-layout .main-content-column h1,
@@ -28,7 +36,6 @@ body{
     font-size: 3.5em; /* Adjusted from 3.2em (3.2 * 20px = 64px, now 4 * 16px = 64px) */
     font-weight: 700;
     color: #6E6EFF;
-    margin-bottom: 16px; /* Added margin-bottom */
 
 }
 
@@ -47,6 +54,7 @@ body{
     font-weight: 500;
     color: #757575;
     margin-bottom: 8px; /* Added margin-bottom */
+    line-height: 1.3;
 
 }
 
@@ -99,7 +107,7 @@ body{
 /* navigation bar */
 header {
     color: #757575;
-    font-size: 1em; /* Adjusted from 1em (1 * 20px = 20px, now 1.25 * 16px = 20px) */
+    font-size: 1.1em; /* Adjusted from 1em (1 * 20px = 20px, now 1.25 * 16px = 20px) */
     font-weight: 600; /* semibold */
     line-height: 1.5; /* Changed to a numeric value */
     display: flex; /* Enable flexbox for the navigation bar */
@@ -363,5 +371,314 @@ footer {
 
     .footer-right li a {
         text-align: left; /* Align link text to the left */
+    }
+}
+
+/* Hero Section Specific Styles */
+.hero-section {
+    background-color: #EDF0FF; /* Light purple background */
+    padding: 80px 40px; /* Generous padding */
+    text-align: left; /* Changed to left-aligned */
+    border-radius: 20px; /* Rounded corners */
+    margin-bottom: 60px; /* Space below the hero section */
+    display: flex;
+    flex-direction: row; /* Changed to row for side-by-side content */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Space content to left and right */
+    position: relative;
+    overflow: hidden; /* For the background elements */
+    gap: 40px; /* Space between text and image area */
+}
+
+.hero-content {
+    flex: 1; /* Allows content to take available space */
+    max-width: 60%; /* Limit width of text content */
+}
+
+.hero-image-placeholder {
+    flex: 1; /* Allows image area to take available space */
+    min-height: 200px; /* Minimum height for the placeholder */
+    background-color: #DDE0F4; /* Light grey for placeholder */
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #757575;
+    font-style: italic;
+    text-align: center;
+}
+
+.hero-section .hero-logo {
+    height: 120px; /* Larger logo */
+    width: auto;
+    margin-bottom: 20px;
+    display: block; /* Ensure logo is a block element for margin */
+}
+
+.hero-section .hero-title {
+    font-size: 5em; /* Very large title */
+    font-weight: 700;
+    color: #6E6EFF; /* Purple color */
+    margin-bottom: 20px;
+    line-height: 1.1; /* Tighter line height */
+}
+
+.hero-section .hero-description {
+    font-size: 1.5em; /* Larger description text */
+    font-weight: 400;
+    color: #404040;
+    margin-bottom: 40px; /* Bottom margin for spacing */
+}
+
+
+
+/* Sections below hero */
+.content-section {
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+}
+
+.modules-section {
+    text-align: left; /* Aligns text within this section to the left */
+    max-width: 900px; /* Added max-width for alignment with content-section */
+    margin: 0 auto 60px auto; /* Added margin for centering and bottom space */
+    padding: 0 20px; /* Added padding to align with content-section */
+}
+
+.modules-section h2 {
+    font-size: 2.5em;
+    color: #34495e;
+    margin-bottom: 40px;
+    /* text-align is now handled by the parent .modules-section */
+}
+
+.modules-section p {
+    /* This p will now inherit from the general p rule */
+    margin-bottom: 20px; /* Ensure consistency with general p margin */
+}
+
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center; /* This will center the grid items within the available space */
+    max-width: 1000px; /* Limit overall grid width */
+    margin: 0 auto; /* Centered within the modules-section */
+}
+
+.module-card {
+    background-color: #f9f9f9;
+    border: 1px solid #E0E0E0;
+    border-radius: 15px;
+    padding: 0 30px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: inherit;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.module-card-image-placeholder {
+    width: calc(100% + 60px);
+    margin-left: -30px;
+    margin-top: 0;
+    height: 180px;
+    background-color: #DDE0F4;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #757575;
+    font-style: italic;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+.module-card-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #6E6EFF;
+    margin-bottom: 10px;
+}
+
+.module-card-description {
+    /* Inherits from general p rule */
+    margin-bottom: 0; /* Override to ensure no extra space at the bottom of the card */
+    flex-grow: 1;
+}
+
+
+/* Responsive adjustments for hero section */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .hero-section .hero-title {
+        font-size: 3.5em;
+    }
+
+    .hero-section .hero-description {
+        font-size: 1.2em;
+    }
+
+    .explore-modules-button {
+    width: 100%;
+    text-align: center;
+    }
+
+    .hero-image-placeholder {
+        width: 100%;
+        min-height: 150px;
+    }
+
+    .modules-section {
+    padding: 0 20px; /* Add padding for small screens */
+    }
+
+    .modules-section h2, .modules-section p {
+    text-align: left; /* Ensure text alignment on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section .hero-title {
+            font-size: 2.5em;
+        }
+    .explore-modules-button {
+        padding: 15px 30px;
+        font-size: 1em;
+    }
+}
+
+.next-chapter-section {
+    display: flex; /* Makes the container a flex container */
+    justify-content: left; /* Changed from space-around to center */
+    align-items: flex-start; /* Aligns items to the top of the container if they have different heights */
+    gap: 20px; /* Adds space between the flex items (modern CSS, excellent for gaps) */
+    flex-wrap: wrap; /* Allows the boxes to wrap to the next line on smaller screens */
+}
+
+/* Rest of your CSS remains the same */
+.next-chapter-box {
+    background-color: #EDF0FF; /* Light purple background */
+    border: 1px solid #6E6EFF; /* Purple border */
+    border-radius: 15px; /* Rounded corners */
+    padding: 30px; /* Padding inside the box */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    text-align: left; /* Keep text aligned left within the box */
+    /* Remove 'width: 40%;' as it might conflict with flex properties and was likely for a different context */
+    flex: 1; /* Allows boxes to grow and shrink, taking equal available space */
+    min-width: 280px; /* Ensures boxes don't get too small on narrow screens before wrapping */
+    max-width: 45%; /* Limits their maximum width to ensure they don't get too wide on large screens */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width */
+}
+
+/* Styles for the new heading within the next chapter box */
+.next-chapter-box .next-chapter-heading {
+    font-weight: 600; /* Font size controlled by two column h3 */
+    color: #404040;
+    margin-bottom: 10px; /* Reduced margin to bring body text closer */
+}
+
+/* Styles for the new paragraph/body text within the next chapter box */
+.next-chapter-box .next-chapter-body {
+    font-size: 1em; /* Smaller font size for body text */
+    font-weight: 300; /* Lighter weight for body text */
+    color: #757575; /* Lighter grey for body text */
+    margin-bottom: 20px; /* Space between text and button */
+    line-height: 1.4;
+}
+
+/* Primary Button Styles (Base) */
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 600; /* Default font-weight for most buttons */
+    white-space: nowrap;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.2em;
+
+}
+
+/* Explore Modules Button */
+.explore-modules-button {
+    padding: 15px 40px;
+    background-color: #ffffff;
+    border: 1px solid #6E6EFF;
+    border-radius: 30px;
+    color: #6E6EFF;
+
+    /* Inherits: font-weight, text-decoration, cursor, transition, display, align-items, justify-content, white-space */
+}
+
+.explore-modules-button:hover {
+    background-color: #6E6EFF;
+    color: #ffffff;
+    border-color: #6E6EFF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+.next-chapter-inner-button{
+    display: inline-block; /* Allows padding and width */
+    padding: 15px 40px;
+    background-color: #6E6EFF; /* Purple background on hover */
+    color: #ffffff; /* White text on hover */
+    border-radius: 30px; /* More rounded corners for button */
+    border-color: #6E6EFF;
+    border: 1px solid #6E6EFF; /* Purple border */
+    font-size: 1.2em;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.next-chapter-inner-button:hover {
+    background-color: #ffffff; /* White background */
+    border: 1px solid #6E6EFF; /* Purple border */
+    color: #6E6EFF; /* Purple text */
+    border-color: #6E6EFF;
+}
+
+/* Optional: Media query for responsiveness */
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    .next-chapter-section {
+        flex-direction: column; /* Stacks the boxes vertically on smaller screens */
+        align-items: center; /* Centers them horizontally when stacked */
+    }
+    .next-chapter-box {
+        max-width: 90%; /* Allows boxes to take up more width when stacked */
+        margin-bottom: 20px; /* Add some space between stacked boxes */
     }
 }

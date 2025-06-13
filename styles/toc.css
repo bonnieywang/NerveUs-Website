@@ -13,7 +13,7 @@
 
 /* ToC title */
 .toc h1 {
-    font-size: 1.25em; /* Adjusted from 1em (1 * 20px = 20px, now 1.25 * 16px = 20px) */
+    font-size: 1.1em; /* Adjusted from 1em (1 * 20px = 20px, now 1.25 * 16px = 20px) */
     font-weight: 600;
 }
 

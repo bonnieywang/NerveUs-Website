@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="./styles/toc.css" />
     <link rel="stylesheet" href="./styles/breadcrumb.css" />
     <link rel="stylesheet" href="./styles/sliderstyle.css" />
-    <link rel="stylesheet" href="./styles/nextChapter.css" />
     <link rel="stylesheet" href="./styles/lessonAccordion.css" />
     <link rel="stylesheet" href="./styles/modal.css" />
     <!--Google Font links-->
@@ -94,10 +93,86 @@
 
     <main class="main-content one-column-layout">
       <div class="main-content-column">
-        <h1>Home Page</h1>
-        <p>This is the one-column layout for the home page.</p>
-        <h2>Welcome</h2>
-        <p>Content for the welcome section.</p>
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="hero-content">
+            <img
+              src="./images/navlogo.png"
+              alt="NerveUs Logo"
+              class="hero-logo"
+            />
+            <p class="hero-description">
+              A comprehensive educational resource to help you navigate your
+              peripheral nerve injury journey.
+            </p>
+            <a
+              href="#modules-section"
+              class="explore-modules-button primary-button"
+              >Explore Modules</a
+            >
+          </div>
+          <div class="hero-image-placeholder">Image/Animation Placeholder</div>
+        </section>
+
+        <!-- What is NerveUs section -->
+        <section class="content-section">
+          <h2>What is NerveUs?</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at erat
+            magna. Mauris id molestie ligula, vel ultrices ligula. Integer in,
+            vitae cursus eros. Donec mollis, tellus a vestibulum eleifend,
+            turpis arcu cursus libero, in dictum ipsum elit nec elit.
+            Vestibulum, tincidunt vel velit.
+          </p>
+        </section>
+
+        <!-- How do I use this resource section -->
+        <section class="content-section">
+          <h2>How do I use this resource?</h2>
+          <h3>If you're a patient....</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, in at erat
+            magna: Mauris id molestie ligula, vel ultrices ligula. Integer in,
+            vitae cursus eros.
+          </p>
+          <h3>If you're a healthcare provider....</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at erat
+            magna. Mauris id molestie ligula, vel ultrices ligula. Integer in,
+            vitae cursus eros.
+          </p>
+        </section>
+
+        <!-- Start your journey here section -->
+        <section id="modules-section" class="modules-section">
+          <h2>Start your journey here.</h2>
+          <p>Choose from one of three modules below.</p>
+          <div class="modules-grid">
+            <a href="./pages/UnderstandingPNI.html" class="module-card">
+              <div class="module-card-image-placeholder">Image Placeholder</div>
+              <h3 class="module-card-title">Understanding PNI</h3>
+              <p class="module-card-description">
+                Get an overview of peripheral nerve injury or explore the
+                details of your specific injury.
+              </p>
+            </a>
+            <a href="./pages/AtTheClinic.html" class="module-card">
+              <div class="module-card-image-placeholder">Image Placeholder</div>
+              <h3 class="module-card-title">At the Clinic</h3>
+              <p class="module-card-description">
+                Learn about diagnostic tests and the members of your care team.
+              </p>
+            </a>
+            <a href="./pages/CareAfterInjury.html" class="module-card">
+              <div class="module-card-image-placeholder">Image Placeholder</div>
+              <h3 class="module-card-title">Care After Injury</h3>
+              <p class="module-card-description">
+                Walk through the potential treatment and recovery solutions
+                available.
+              </p>
+            </a>
+          </div>
+        </section>
       </div>
     </main>
 
