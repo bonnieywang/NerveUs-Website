@@ -277,3 +277,46 @@
 .slider-handle-indicator.hidden {
     opacity: 0;
 }
+
+       /* SVG Text Tooltip Styles (applied directly to SVG text elements) */
+        .svg-text-tooltip {
+            font-family: 'Geist', Helvetica, sans-serif;
+            font-size: 40px; /* Adjusted to appear larger in SVG units */
+            fill: #404040; /* Text color */
+            pointer-events: none; /* Text itself should not block hover on shape */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+            /* SVG text positioning is handled via x, y, and text-anchor attributes */
+        }
+
+        /* SVG Tooltip Background Rectangle Style */
+        .svg-tooltip-background {
+            fill: white;
+            stroke: #404040;
+            stroke-width: 1;
+            rx: 30; /* Border radius x */
+            ry: 30; /* Border radius y */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+            pointer-events: none; /* Background itself should not block hover on shape */
+        }
+
+
+        /* Adjustments for responsiveness */
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
+                gap: 1rem;
+            }
+            #animationContainer {
+                height: 200px;
+            }
+            #slider-container {
+                height: 3rem;
+            }
+            .svg-text-tooltip {
+                font-size: 60px; /* Adjusted for mobile, still large in SVG units */
+            }
+        }
