@@ -25,10 +25,13 @@ body{
 
 /* General paragraph styling */
 p {
-    margin-bottom: 20px; /* Standardized margin bottom for all paragraphs */
     color: #404040; /* Standardized text color for all paragraphs */
 }
 
+/* More specific paragraph styling for content columns to ensure margin-bottom */
+.main-content-column p {
+    margin-bottom: 20px; /* Ensures this margin is applied within content columns */
+}
 
 /* Heading styles for main content */
 .one-column-layout .main-content-column h1,
@@ -435,7 +438,7 @@ footer {
 /* Sections below hero */
 .content-section {
     max-width: 900px;
-    margin: 0 auto 60px auto;
+    margin: 0 auto 0px auto;
     padding: 0 20px;
 }
 
