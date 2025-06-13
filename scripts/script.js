@@ -1,6 +1,9 @@
 // This single DOMContentLoaded listener will execute once the HTML document is fully loaded.
 // It's the best practice to wrap all DOM manipulation logic within this.
 document.addEventListener("DOMContentLoaded", () => {
+  // Fade in the body once the DOM is fully loaded
+  document.body.style.opacity = "1";
+
   // --- 1. Navigation Active Link Functionality ---
   const setupNavActiveLinks = () => {
     const navLinks = document.querySelectorAll(".dropdown-main-menu > li > a");

@@ -18,24 +18,6 @@
       href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
       rel="stylesheet"
     />
-
-    <!--Show current page as active in navigation bar-->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const navLinks = document.querySelectorAll(
-          ".dropdown-main-menu > li > a"
-        );
-        const currentPath = window.location.pathname;
-
-        navLinks.forEach((link) => {
-          const linkPath = new URL(link.href).pathname;
-          // Use endsWith to handle both /page.html and /page
-          if (currentPath.endsWith(linkPath)) {
-            link.parentElement.classList.add("active");
-          }
-        });
-      });
-    </script>
   </head>
 
   <body>
@@ -205,5 +187,7 @@
         </ul>
       </div>
     </footer>
+
+    <script src="./scripts/script.js"></script>
   </body>
 </html>
