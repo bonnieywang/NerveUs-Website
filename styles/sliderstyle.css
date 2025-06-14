@@ -173,7 +173,7 @@
   /* Hover state */
 #toggleSkinOverlayBtn:hover, #toggleBoneOverlayBtn:hover,
 #toggleSkinOverlayBtn.active:hover, #toggleBoneOverlayBtn.active:hover {
-    background-color: rgb(236, 246, 224) ; /* Change to a green background */
+    background-color: #FFFDEC; /* Change to a green background */
     color: #404040; /* Change text color to white */
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -182,7 +182,7 @@
   
   /* Active state for buttons */
 #toggleSkinOverlayBtn.active, #toggleBoneOverlayBtn.active {
-    background-color: #E0F2C0;  /* Green for active state */
+    background-color: #fffbd3;  /* Green for active state */
     color: #404040;
     font-weight: normal; /* Ensure text is not bold in active state */
 }
