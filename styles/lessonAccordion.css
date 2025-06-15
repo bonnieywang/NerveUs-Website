@@ -69,3 +69,7 @@
 .panel-content li {
     text-indent: 0;
 }
+
+.panel-content p {
+    margin-bottom: 8px;
+}

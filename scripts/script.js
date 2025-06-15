@@ -1,5 +1,3 @@
-// This single DOMContentLoaded listener will execute once the HTML document is fully loaded.
-// It's the best practice to wrap all DOM manipulation logic within this.
 document.addEventListener("DOMContentLoaded", () => {
   // Fade in the body once the DOM is fully loaded
   document.body.style.opacity = "1";
@@ -308,4 +306,59 @@ document.addEventListener("DOMContentLoaded", () => {
     slider.addEventListener("focus", hideIndicator);
   };
   setupSliderIndicator();
+
+  // --- Tabbed Slideshow Functionality ---
+  const tabButtons = document.querySelectorAll(".tab-button");
+  const tabContents = document.querySelectorAll(".tab-content");
+  // const tabsContainer = document.querySelector('.tab-section'); // No longer needed for hover control
+
+  let currentTabIndex = 0;
+  // let slideshowInterval; // No longer needed
+  // const slideshowDelay = 5000; // No longer needed
+
+  // Function to show a specific tab
+  function showTab(index) {
+    // Remove 'active' class from all buttons and content
+    tabButtons.forEach((button) => button.classList.remove("active"));
+    tabContents.forEach((content) => content.classList.remove("active"));
+
+    // Add 'active' class to the clicked/current button and its corresponding content
+    tabButtons[index].classList.add("active");
+    tabContents[index].classList.add("active");
+
+    currentTabIndex = index;
+  }
+
+  // Function to advance the slideshow (no longer automatically called)
+  // function nextTab() {
+  //     currentTabIndex = (currentTabIndex + 1) % tabButtons.length;
+  //     showTab(currentTabIndex);
+  // }
+
+  // Start the slideshow (no longer automatically called)
+  // function startSlideshow() {
+  //     clearInterval(slideshowInterval);
+  //     slideshowInterval = setInterval(nextTab, slideshowDelay);
+  // }
+
+  // Pause the slideshow (no longer automatically called)
+  // function pauseSlideshow() {
+  //     clearInterval(slideshowInterval);
+  // }
+
+  // Add event listeners for tab buttons
+  tabButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      showTab(index);
+      // Removed calls to pauseSlideshow() and startSlideshow() on click
+    });
+  });
+
+  // Removed pause slideshow on hover over the entire tab section and resume when not hovering
+  // tabsContainer.addEventListener('mouseenter', pauseSlideshow);
+  // tabsContainer.addEventListener('mouseleave', startSlideshow);
+
+  // Initialize the first tab (still necessary)
+  showTab(0);
+  // Removed call to startSlideshow() here
 });

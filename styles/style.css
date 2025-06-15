@@ -19,8 +19,7 @@ body{
     color: #404040; /* Base text color */
     font-size: 17px; /* base em */
     font-weight: 300;
-    line-height: 1.6; /* Standardized line height for all paragraphs */
-    margin-bottom: 20px; /* Standardized margin bottom for all paragraphs */
+    line-height: 1.5; /* Standardized line height for all paragraphs */
 }
 
 body.fade-in {
@@ -33,7 +32,7 @@ p {
 
 /* More specific paragraph styling for content columns to ensure margin-bottom */
 .main-content-column p {
-    margin-bottom: 20px; /* Ensures this margin is applied within content columns */
+    margin-bottom: 8px; /* Ensures this margin is applied within content columns */
 }
 
 /* Heading styles for main content */
@@ -50,7 +49,7 @@ p {
     font-size: 2.5em; /* Adjusted from 2.4em (2.4 * 20px = 48px, now 3 * 16px = 48px) */
     font-weight: 600;
     color: #34495e;
-    margin-bottom: 2px; /* Added margin-bottom */
+    margin-bottom: 8px; /* Ensures this margin is applied within content columns */
 
 }
 
@@ -59,15 +58,25 @@ p {
     font-size: 1.5em;
     font-weight: 500;
     color: #757575;
-    margin-bottom: 8px; /* Added margin-bottom */
     line-height: 1.3;
+    margin-bottom: 8px; /* Ensures this margin is applied within content columns */
+
+}
+
+.one-column-layout .main-content-column h4,
+.two-column-layout .main-content-column h4 {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #404040;
+    line-height: 1.3;
+    margin-bottom: 8px; /* Ensures this margin is applied within content columns */
 
 }
 
 
 /* Layout Styles */
 .main-content {
-    padding: 10px 20px 0 0; /* Removed top padding, added bottom padding */
+    padding: 10px 150px 0 0; /* Removed top padding, added bottom padding */
     max-width: 1200px;
     margin: 40px auto 0; /* Added top margin to move content down, removed bottom margin*/
     display: flex;
@@ -77,6 +86,18 @@ p {
 /* Added margin-bottom to sections for spacing */
 .main-content-column section {
     margin-bottom: 40px; /* Adjust as needed for desired spacing */
+}
+
+.main-content-column .subsection {
+    margin-bottom: 20px; /* Adjust as needed for desired spacing */
+}
+
+.main-content-column ul {
+    list-style-type: disc; /* Use disc bullets for unordered lists */
+    padding-left: 40px; /* Indent unordered lists */
+    padding-right: 100px; /* Indent unordered lists */
+    margin-bottom: 8px; /* Space below lists */
+
 }
 
 /* One column layout */
@@ -95,6 +116,82 @@ p {
     flex: 3; /* Takes up 4/5 of the available space */
     margin-left: 20px; /* Added margin-left to main content */
 }
+
+/* --- New Content Two Column Layout (Image/Animation & Text) --- */
+.media-text-column {
+    display: flex;
+    flex-direction: row; /* Default to image on left, text on right */
+    gap: 16px; /* Space between media and text */
+    align-items: center; /* Vertically center items */
+    margin-bottom: 20px; /* Space below this section */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.media-text-column.reversed {
+    flex-direction: row-reverse; /* For text on left, image on right */
+}
+
+.media-column {
+    flex: 1; /* Allow media column to take available space */
+    min-width: 200px; /* Minimum width before wrapping */
+    height: 200px; /* Fixed height for consistency, adjust as needed */
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #757575;
+    font-style: italic;
+    text-align: center;
+    overflow: hidden; /* Ensure content respects border-radius */
+    box-sizing: border-box; /* Include padding/border in total width */
+}
+
+.media-column img,
+.media-column video,
+.media-column canvas {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Or 'cover' depending on desired crop */
+    border-radius: inherit; /* Inherit rounded corners from parent */
+}
+
+.text-column {
+    flex: 2; /* Allow text column to take more space (e.g., 2/3 of available space) */
+    min-width: 300px; /* Minimum width before wrapping */
+    box-sizing: border-box; /* Include padding/border in total width */
+}
+
+.text-column h4 {
+    margin-top: 0; /* Remove top margin if it's the first element */
+    font-weight: 600;
+}
+
+/* Responsive adjustments for content two-column layout */
+@media (max-width: 768px) {
+    .media-text-column {
+        flex-direction: column; /* Stack columns vertically on smaller screens */
+        align-items: flex-start; /* Align stacked content to the left */
+        gap: 20px; /* Reduce gap when stacked */
+    }
+
+    .media-text-column.reversed {
+        flex-direction: column; /* Still stack columns vertically, reverse order doesn't apply as visually */
+    }
+
+    .media-column,
+    .text-column {
+        flex: none; /* Reset flex properties when stacked */
+        width: 100%; /* Take full width when stacked */
+        min-width: unset; /* Remove min-width restriction when stacked */
+    }
+
+    .media-column {
+        height: 250px; /* Adjust height for smaller screens */
+    }
+}
+/* --- End New Content Two Column Layout --- */
+
+
 
 .hyperlink {
     color: #757575; /* Purple color for links */
@@ -690,3 +787,69 @@ footer {
         margin-bottom: 20px; /* Add some space between stacked boxes */
     }
 }
+
+       /* --- Tabbed Slideshow Section Styles --- */
+        .tab-section {
+            background-color: #ffffff; /* Or a light background to differentiate */
+            border: 1px solid #e0e0e0; /* Thin gray border */
+            border-radius: 10px; /* Rounded corners */
+            padding: 15px;
+            margin-top: 20px; /* Space from previous section */
+        }
+
+        .tabs-container {
+            display: flex;
+            justify-content: center; /* Center the tab buttons */
+            flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+            margin-bottom: 20px;
+            border-bottom: 2px solid #E0E0E0; /* Subtle line below tabs */
+        }
+
+        .tab-button {
+            background-color: transparent;
+            border: none;
+            padding: 8px 12px; /* Adjusted padding for smaller buttons */
+            font-size: 0.85em; /* Adjusted font size for smaller buttons */
+            font-weight: 500;
+            color: #757575;
+            cursor: pointer;
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+            border-bottom: 2px solid transparent; /* Placeholder for active border */
+            margin: 0 3px; /* Adjusted space between buttons */
+            white-space: nowrap; /* Prevent tab text from wrapping */
+        }
+
+        .tab-button:hover,
+        .tab-button:focus {
+            color: #000000;
+        }
+
+        .tab-button.active {
+            color: #6E6EFF; /* Purple for active tab */
+            border-bottom-color: #6E6EFF; /* Highlight active tab with a purple line */
+            font-weight: 600; /* Make active tab bolder */
+        }
+
+        .tab-content-container {
+            position: relative; /* For absolute positioning of content for fade effect */
+            min-height: 250px; /* Ensure container has a minimum height */
+        }
+
+        .tab-content {
+            /* No longer absolutely positioned to allow container to expand */
+            opacity: 0;
+            max-height: 0; /* Initially collapsed */
+            overflow: hidden; /* Hide overflow when collapsed */
+            transform: translateY(10px); /* Initial state for slide-down effect */
+            transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease; /* Transition all relevant properties */
+            padding: 10px; /* Inner padding for content */
+            box-sizing: border-box; /* Ensure padding is included in max-height */
+        }
+
+        .tab-content.active {
+            opacity: 1;
+            max-height: 1000px; /* Sufficiently large value to show all content */
+            transform: translateY(0); /* Slide up to final position */
+        }
+
+        /* --- End Tabbed Slideshow Section Styles --- */
