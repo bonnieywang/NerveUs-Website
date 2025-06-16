@@ -3,7 +3,6 @@
         #interactiveSliderBox, #interactiveSliderBox2 {
             border: 1px solid #e0e0e0; /* Thin gray border */
             border-radius: 10px; /* Rounded corners */
-            padding-bottom: 20px; /* Added some padding to the bottom of the box */
         }
 
         /* Wraps the animation, overlay layers, and associated buttons */

@@ -1,5 +1,5 @@
 /* Breadcrumb Styles */
-.breadcrumb {
+.main-content-column .breadcrumb {
     font-family: 'Geist', 'Helvetica', sans-serif; /* Apply Geist font */
     font-size: 16px; /* This was already 16px, no change needed */
     color: #757575;
@@ -7,7 +7,10 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    padding-left: 0;
+    padding-right: 0;
 }
+
 
 .breadcrumb li {
     margin-right: 8px;
