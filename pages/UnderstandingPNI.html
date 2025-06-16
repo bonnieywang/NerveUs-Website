@@ -140,40 +140,11 @@
             </p>
           </div>
           <h3>What is the structure of a nerve?</h3>
+          <!-- Layers of a Nerve Interactive Slider -->
           <div id="interactiveSliderBox">
             <div id="animationWrapper">
-              <!--Bottom Layers-->
-              <img
-                id="skinOverlay"
-                src="../images/BPanimation/skin layer.png"
-                alt="Skin Overlay"
-                style="display: none"
-              />
-              <img
-                id="boneBehind"
-                src="../images/BPanimation/bone behind.png"
-                alt="Bone Behind"
-                style="display: none"
-              />
-
               <!-- Animation container -->
               <div id="animationContainer"></div>
-
-              <!-- Top Layer -->
-              <img
-                id="boneFront"
-                src="../images/BPanimation/bone in front.png"
-                alt="Bone Front"
-                style="display: none"
-              />
-
-              <!--Buttons-->
-              <button id="toggleSkinOverlayBtn" onclick="toggleSkinOverlay()">
-                Show Skin
-              </button>
-              <button id="toggleBoneOverlayBtn" onclick="toggleBoneOverlay()">
-                Show Bone
-              </button>
             </div>
 
             <div class="sliderContainer">
@@ -214,8 +185,6 @@
                   >CC BY-NC-ND 4.0.</a
                 >
               </p>
-              <br />
-
               <a
                 href="../videos/sample video.mov"
                 download="structure of nerve"
@@ -225,7 +194,7 @@
                 Download as video
               </a>
 
-              <button class="accordion">Lesson summary</button>
+              <button class="accordion">Animation summary</button>
               <div class="panel">
                 <div class="panel-content">
                   <p>
@@ -496,6 +465,108 @@
         <section id="nerves-in-the-arm">
           <h2>Nerves in the Arm</h2>
           <h3>How are nerves in the arm organized?</h3>
+          <!-- SECOND INTERACTIVE SLIDER (DUPLICATED) -->
+          <div id="interactiveSliderBox2">
+            <div id="animationWrapper2">
+              <!--Bottom Layers-->
+              <img
+                id="skinOverlay2"
+                src="https://placehold.co/400x300/DDE0F4/757575?text=Skin+Overlay+2"
+                alt="Skin Overlay 2"
+                style="display: none"
+              />
+              <img
+                id="boneBehind2"
+                src="https://placehold.co/400x300/DDE0F4/757575?text=Bone+Behind+2"
+                alt="Bone Behind 2"
+                style="display: none"
+              />
+
+              <!-- Animation container -->
+              <div id="animationContainer2"></div>
+
+              <!-- Top Layer -->
+              <img
+                id="boneFront2"
+                src="https://placehold.co/400x300/DDE0F4/757575?text=Bone+Front+2"
+                alt="Bone Front 2"
+                style="display: none"
+              />
+
+              <!--Buttons-->
+              <button id="toggleSkinOverlayBtn2">Show Skin</button>
+              <button id="toggleBoneOverlayBtn2">Show Bone</button>
+            </div>
+
+            <div class="sliderContainer">
+              <!-- Slider Wrapper to hold both slider and tick marks -->
+              <div class="slider-wrapper">
+                <input
+                  id="slider2"
+                  type="range"
+                  max="1"
+                  min="0"
+                  value="0"
+                  step="any"
+                  class="slider"
+                />
+                <div id="tickmarks2"></div>
+                <!-- Tick marks inside the wrapper -->
+                <div
+                  id="sliderIndicator2"
+                  class="slider-handle-indicator absolute top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                >
+                  <img
+                    src="https://placehold.co/40x40/0000FF/FFFFFF?text=Slide2"
+                    alt="Slide Indicator 2"
+                    class="w-10 h-10 rounded-full shadow-md"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="interactive-slider-description-box">
+              <p>
+                This is the second interactive animation. Click and drag the
+                slider to the left or right to navigate through the lesson.
+                <a
+                  href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
+                  target="_blank"
+                  class="hyperlink"
+                  >CC BY-NC-ND 4.0.</a
+                >
+              </p>
+              <br />
+
+              <a
+                href="../videos/sample video.mov"
+                download="structure of nerve 2"
+                class="interactive-slider-download-button"
+                download
+              >
+                Download as video
+              </a>
+
+              <button class="accordion">Animation summary</button>
+              <div class="panel">
+                <div class="panel-content">
+                  <p>
+                    This is the summary for the second interactive slider. It
+                    can describe different layers or concepts relevant to this
+                    animation.
+                  </p>
+                  <p>Each layer here has its own unique characteristics.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <p>
+            This is another representation of a concept. Hover over different
+            regions to learn more about the different parts.
+          </p>
+          <!-- END SECOND INTERACTIVE SLIDER -->
+
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
@@ -607,7 +678,7 @@
 
     <script src="../scripts/script.js"></script>
     <script src="../scripts/LottieInteractiveSlider/player2.js"></script>
-    <script src="../scripts/LottieInteractiveSlider/lottiecontrol2.js"></script>
+    <script src="../scripts/LottieInteractiveSlider/lottiecontrol1.js"></script>
     <script src="../scripts/LottieInteractiveSlider/togglebutton.js"></script>
   </body>
 </html>

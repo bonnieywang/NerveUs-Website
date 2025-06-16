@@ -2,8 +2,8 @@
         .tab-section {
             background-color: #ffffff; /* Or a light background to differentiate */
             border-radius: 15px;
-            padding: 15px;
-            margin-top: 40px; /* Space from previous section */
+            padding: 8px;
+            margin-top: 20px; /* Space from previous section */
         }
 
         .tabs-container {
