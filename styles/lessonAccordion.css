@@ -1,75 +1,82 @@
 .accordion {
-    background-color: #f8f8f8;
-    color: #757575;
-    cursor: pointer;
-    padding: 16px;
-    width: 100%; /* Account for the 56px padding on each side */
-    margin: 8px auto; /* Center the accordion and add spacing between them */
-    border: none;
-    border-radius: 10px; /* Rounded corners */
-    text-align: left;
-    font-weight: 600;
-    outline: none;
-    font-size: 1em;
-    transition: 0.3s ease;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for a modern look */
+  background-color: #f8f8f8;
+  color: #757575;
+  cursor: pointer;
+  padding: 16px;
+  width: 100%; /* Account for the 56px padding on each side */
+  margin: 8px auto; /* Center the accordion and add spacing between them */
+  border: 1px solid #e0e0e0;
+  border-radius: 10px; /* Rounded corners */
+  text-align: left;
+  font-weight: 600;
+  outline: none;
+  font-size: 1em;
+  transition: 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for a modern look */
 }
-  
+
 /* Make .active specific to the accordion class */
-.accordion.active, .accordion:hover { /* <-- CHANGED THIS LINE */
-    background-color: #ffffff;
-    color: #404040;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+.accordion.active,
+.accordion:hover {
+  /* <-- CHANGED THIS LINE */
+  background-color: #ffffff;
+  color: #404040;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
-  
+
 .accordion:after {
-    content: '\002B';
-    color: #404040;
-    font-weight: 600;
-    float: right;
-    margin-left: 5px;
+  content: "\002B";
+  color: #404040;
+  font-weight: 600;
+  float: right;
+  margin-left: 5px;
 }
-  
+
 /* Make .active specific to the accordion class */
-.accordion.active:after { /* <-- CHANGED THIS LINE */
-    content: "\2212";
+.accordion.active:after {
+  /* <-- CHANGED THIS LINE */
+  content: "\2212";
 }
-  
 
 .panel {
-    max-height: 0;
-    overflow: auto;
-    background-color: #f8f8f8; /* This is the background color you see */
-    /* Add padding to the transition for a smoother effect */
-    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-    /* Set initial padding to 0 top/bottom, keep horizontal padding */
-    padding: 0 16px; /* <-- CHANGED THIS LINE */
-    box-sizing: border-box;
+  max-height: 0;
+  overflow: auto;
+  background-color: #f8f8f8; /* This is the background color you see */
+  /* Add padding to the transition for a smoother effect */
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  /* Set initial padding to 0 top/bottom, keep horizontal padding */
+  padding: 0 16px; /* <-- CHANGED THIS LINE */
+  box-sizing: border-box;
 }
 
 /* NEW RULE: Apply full padding when the accordion is active */
 .accordion.active + .panel {
-    padding: 16px; /* <-- NEW: This overrides the previous padding to 16px all around when open */
+  padding: 16px; /* <-- NEW: This overrides the previous padding to 16px all around when open */
 }
 
 /* Ensure panel font size styling takes precedence */
-.interactive-slider-description-box .accordion.active + .panel .panel-content p { /* <-- CHANGED THIS LINE */
-    padding: 0; /* Already 0 0, so just 0 for consistency */
-    line-height: 1.5;
-    font-size: 1em; /* This will now apply */
-    color: #404040; /* Add this if you want the text color to be consistent */
+.interactive-slider-description-box
+  .accordion.active
+  + .panel
+  .panel-content
+  p {
+  /* <-- CHANGED THIS LINE */
+  padding: 0; /* Already 0 0, so just 0 for consistency */
+  line-height: 1.5;
+  font-size: 1em; /* This will now apply */
+  color: #404040; /* Add this if you want the text color to be consistent */
 }
 
 .panel-content ul {
-    padding-left: 1.5em;
-    margin: 0;
+  padding-left: 1.5em;
+  margin: 0;
 }
 
 .panel-content li {
-    text-indent: 0;
+  text-indent: 0;
 }
 
 .panel-content p {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
