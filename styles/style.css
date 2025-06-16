@@ -93,6 +93,13 @@ p {
   margin-bottom: 8px; /* Space below lists */
 }
 
+.main-content-column ol {
+  list-style-type: decimal; /* Use decimal numbers for ordered lists */
+  padding-left: 40px; /* Indent unordered lists */
+  padding-right: 100px; /* Indent unordered lists */
+  margin-bottom: 8px; /* Space below lists */
+}
+
 /* One column layout */
 .one-column-layout .main-content-column {
   flex: 1;
@@ -185,12 +192,12 @@ p {
 /* --- End New Content Two Column Layout --- */
 
 .hyperlink {
-  color: #757575; /* Purple color for links */
+  color: #404040; /* Purple color for links */
   text-decoration: underline; /* Remove underline */
   transition: color 0.3s ease; /* Smooth color transition */
 }
 .hyperlink:hover {
-  color: #404040; /* Darker purple on hover */
+  color: #6e6eff; /* Darker purple on hover */
 }
 
 .inline-header {
