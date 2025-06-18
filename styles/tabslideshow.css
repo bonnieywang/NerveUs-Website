@@ -82,6 +82,10 @@
   /* Removed margin-top: 15px; from here */
 }
 
+.tab-inner-media-text-column .tab-text {
+  padding: 20px;
+}
+
 .tab-inner-media-text-column .media-column {
   flex: 1;
   min-width: 100px; /* Even smaller min-width */
@@ -104,9 +108,9 @@
   max-height: 100%;
   object-fit: contain;
   border-radius: inherit;
-  margin-bottom: 20px;
 }
 
+/* text class for two column split */
 .tab-inner-media-text-column .text-column {
   flex: 2;
   min-width: 200px; /* Ensure text column doesn't get too small */
