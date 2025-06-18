@@ -1,149 +1,152 @@
-        /* --- Tabbed Slideshow Section Styles --- */
-        .tab-section {
-            background-color: #ffffff; /* Or a light background to differentiate */
-            border-radius: 15px;
-            padding: 8px;
-            margin-top: 20px; /* Space from previous section */
-        }
+/* --- Tabbed Slideshow Section Styles --- */
+.tab-section {
+  background-color: #ffffff; /* Or a light background to differentiate */
+  border-radius: 15px;
+  border: 1px solid #e0e0e0; /* Thin gray border */
+  padding: 8px;
+  margin-top: 20px; /* Space from previous section */
+}
 
-        .tabs-container {
-            display: flex;
-            justify-content: center; /* Center the tab buttons */
-            flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
-            margin-bottom: 20px;
-            border-bottom: 2px solid #E0E0E0; /* Subtle line below tabs */
-        }
+.tabs-container {
+  display: flex;
+  justify-content: center; /* Center the tab buttons */
+  flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0; /* Subtle line below tabs */
+}
 
-        .tab-button {
-            background-color: transparent;
-            border: none;
-            padding: 8px 12px; /* Adjusted padding for smaller buttons */
-            font-size: 0.9em; /* Adjusted font size for smaller buttons */
-            font-weight: 500;
-            color: #757575;
-            cursor: pointer;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
-            border-bottom: 2px solid transparent; /* Placeholder for active border */
-            margin: 0 3px; /* Adjusted space between buttons */
-            white-space: nowrap; /* Prevent tab text from wrapping */
-        }
+.tab-button {
+  background-color: transparent;
+  border: none;
+  padding: 8px 12px; /* Adjusted padding for smaller buttons */
+  font-size: 0.9em; /* Adjusted font size for smaller buttons */
+  font-weight: 500;
+  color: #757575;
+  cursor: pointer;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+  border-bottom: 2px solid transparent; /* Placeholder for active border */
+  margin: 0 3px; /* Adjusted space between buttons */
+  white-space: nowrap; /* Prevent tab text from wrapping */
+}
 
-        .tab-button:hover,
-        .tab-button:focus {
-            color: #000000;
-        }
+.tab-button:hover,
+.tab-button:focus {
+  color: #000000;
+}
 
-        .tab-button.active {
-            color: #6E6EFF; /* Purple for active tab */
-            border-bottom-color: #6E6EFF; /* Highlight active tab with a purple line */
-            font-weight: 600; /* Make active tab bolder */
-        }
+.tab-button.active {
+  color: #6e6eff; /* Purple for active tab */
+  border-bottom-color: #6e6eff; /* Highlight active tab with a purple line */
+  font-weight: 600; /* Make active tab bolder */
+}
 
-        .tab-content-container {
-            position: relative; /* Keep for stacking content and smooth transitions */
-            /* Removed min-height from here to allow container to shrink to active content height */
-        }
+.tab-content-container {
+  position: relative; /* Keep for stacking content and smooth transitions */
+  /* Removed min-height from here to allow container to shrink to active content height */
+}
 
-        .tab-content {
-            opacity: 0;
-            max-height: 0; /* Initially collapsed */
-            overflow: hidden; /* Hide overflow when collapsed */
-            transform: translateY(10px); /* Initial state for slide-down effect */
-            /* Adjusted transition property to manage display property delay */
-            transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease, display 0s 0.5s; /* Delay display: none */
-            padding: 10px; /* Inner padding for content */
-            box-sizing: border-box; /* Ensure padding is included in max-height */
-            display: none; /* Hide the element completely from document flow */
-        }
+.tab-content {
+  opacity: 0;
+  max-height: 0; /* Initially collapsed */
+  overflow: hidden; /* Hide overflow when collapsed */
+  transform: translateY(10px); /* Initial state for slide-down effect */
+  /* Adjusted transition property to manage display property delay */
+  transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease,
+    display 0s 0.5s; /* Delay display: none */
+  padding: 10px; /* Inner padding for content */
+  box-sizing: border-box; /* Ensure padding is included in max-height */
+  display: none; /* Hide the element completely from document flow */
+}
 
-        .tab-content.active {
-            opacity: 1;
-            max-height: 1000px; /* Sufficiently large value to show all content */
-            transform: translateY(0); /* Slide up to final position */
-            /* Adjusted transition property to make display property immediate */
-            transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease, display 0s 0s; /* Make display: block immediate */
-            display: block; /* Show the element when active */
-        }
+.tab-content.active {
+  opacity: 1;
+  max-height: 1000px; /* Sufficiently large value to show all content */
+  transform: translateY(0); /* Slide up to final position */
+  /* Adjusted transition property to make display property immediate */
+  transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease,
+    display 0s 0s; /* Make display: block immediate */
+  display: block; /* Show the element when active */
+}
 
-        .tab-content h3 {
-            color: #34495e;
-            margin-bottom: 15px;
-        }
-        /* --- End Tabbed Slideshow Section Styles --- */
+.tab-content h3 {
+  color: #34495e;
+  margin-bottom: 15px;
+}
+/* --- End Tabbed Slideshow Section Styles --- */
 
-        /* --- Nested Media-Text Column Styles for Tab Content --- */
-        .tab-inner-media-text-column {
-            display: flex;
-            gap: 15px; /* Slightly less gap for inner tabs */
-            align-items: flex-start; /* Align items to the top */
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            /* Removed margin-top: 15px; from here */
-        }
+/* --- Nested Media-Text Column Styles for Tab Content --- */
+.tab-inner-media-text-column {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  /* Removed margin-top: 15px; from here */
+}
 
-        .tab-inner-media-text-column .media-column {
-            flex: 1;
-            min-width: 100px; /* Even smaller min-width */
-            max-width: 200px; /* Max width to keep image reasonable size */
-            height: 150px; /* Adjusted height for nested media column */
-            background-color: #DDE0F4;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #757575;
-            font-style: italic;
-            text-align: center;
-            overflow: hidden;
-            box-sizing: border-box;
-        }
+.tab-inner-media-text-column .media-column {
+  flex: 1;
+  min-width: 100px; /* Even smaller min-width */
+  max-width: 200px; /* Max width to keep image reasonable size */
+  height: 150px; /* Adjusted height for nested media column */
+  background-color: #dde0f4;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #757575;
+  font-style: italic;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
 
-        .tab-inner-media-text-column .media-column img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            border-radius: inherit;
-        }
+.tab-inner-media-text-column img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: inherit;
+  margin-bottom: 20px;
+}
 
-        .tab-inner-media-text-column .text-column {
-            flex: 2;
-            min-width: 200px; /* Ensure text column doesn't get too small */
-        }
+.tab-inner-media-text-column .text-column {
+  flex: 2;
+  min-width: 200px; /* Ensure text column doesn't get too small */
+}
 
-        /* Consistent margins for direct children within the text-column of tabbed sections */
-        .tab-inner-media-text-column .text-column > * {
-            margin-top: 0; /* Remove default top margins */
-            margin-bottom: 10px; /* Set a consistent bottom margin for all direct children */
-        }
+/* Consistent margins for direct children within the text-column of tabbed sections */
+.tab-inner-media-text-column .text-column > * {
+  margin-top: 0; /* Remove default top margins */
+  margin-bottom: 10px; /* Set a consistent bottom margin for all direct children */
+}
 
-        /* Remove bottom margin for the very last child in the text-column */
-        .tab-inner-media-text-column .text-column > *:last-child {
-            margin-bottom: 0;
-        }
+/* Remove bottom margin for the very last child in the text-column */
+.tab-inner-media-text-column .text-column > *:last-child {
+  margin-bottom: 0;
+}
 
-        /* Specific styling for ul within tab-inner-media-text-column to ensure consistent spacing */
-        .tab-inner-media-text-column .text-column ul {
-            list-style-type: disc;
-            padding-left: 20px; /* Adjust padding for nested lists within tabs */
-            margin-top: 8px; /* Consistent margin above UL */
-            margin-bottom: 8px; /* Consistent margin below UL */
-        }
+/* Specific styling for ul within tab-inner-media-text-column to ensure consistent spacing */
+.tab-inner-media-text-column .text-column ul {
+  list-style-type: disc;
+  padding-left: 20px; /* Adjust padding for nested lists within tabs */
+  margin-top: 8px; /* Consistent margin above UL */
+  margin-bottom: 8px; /* Consistent margin below UL */
+}
 
-
-        /* Responsive adjustments for nested media-text-column */
-        @media (max-width: 600px) { /* Adjust breakpoint if needed */
-            .tab-inner-media-text-column {
-                flex-direction: column;
-                align-items: center; /* Center when stacked */
-            }
-            .tab-inner-media-text-column .media-column,
-            .tab-inner-media-text-column .text-column {
-                flex: none;
-                width: 100%;
-                max-width: none; /* Remove max-width when stacked */
-                min-width: unset;
-            }
-            .tab-inner-media-text-column .media-column {
-                height: 120px; /* Further adjust height when stacked */
-            }
-        }
-        /* --- End Nested Media-Text Column Styles --- */
+/* Responsive adjustments for nested media-text-column */
+@media (max-width: 600px) {
+  /* Adjust breakpoint if needed */
+  .tab-inner-media-text-column {
+    flex-direction: column;
+    align-items: center; /* Center when stacked */
+  }
+  .tab-inner-media-text-column .media-column,
+  .tab-inner-media-text-column .text-column {
+    flex: none;
+    width: 100%;
+    max-width: none; /* Remove max-width when stacked */
+    min-width: unset;
+  }
+  .tab-inner-media-text-column .media-column {
+    height: 120px; /* Further adjust height when stacked */
+  }
+}
+/* --- End Nested Media-Text Column Styles --- */
